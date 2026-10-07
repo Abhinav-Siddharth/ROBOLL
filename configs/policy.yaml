@@ -1,0 +1,6 @@
+# Thresholds for method B5 (history-aware recovery policy). Tune these ONLY on the pilot, then freeze.
+transient_retry_cap: 3      # retry an EXEC_TRANSIENT failure while its count is <= this
+state_replan_cap: 2         # replan on STATE_MISMATCH while its count is <= this, then abstain
+precond_replan_cap: 2       # replan on PRECOND_UNMET while its count is <= this, then abstain
+total_failure_budget: 6     # escalate when total failures reach this
+exhausted_action: escalate  # what to do when the transient retry cap is exceeded (escalate | abstain)
