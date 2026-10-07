@@ -1,4 +1,4 @@
-"""Day 5: estimate main-run hours from the pilot.
+"""estimate main-run hours from the pilot.
 
     python scripts/estimate_hours.py results/raw/pilot.jsonl
 Uses the recorded LLM latency per episode (cached calls keep their original latency), scaled to

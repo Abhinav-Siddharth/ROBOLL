@@ -1,4 +1,4 @@
-"""Quick tables + the Day 4 go/no-go test.
+"""Quick tables + the go/no-go test.
 
     python analysis/summarize.py results/raw/pilot.jsonl
 """

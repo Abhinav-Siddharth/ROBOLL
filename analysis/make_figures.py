@@ -1,4 +1,4 @@
-"""Day 6: figures + tables from results/raw/*.jsonl.
+"""figures + tables from results/raw/*.jsonl.
 
     python analysis/make_figures.py results/raw/qwen.jsonl
 Outputs: figures/fig1..fig4 (png), results/tables/*.csv
