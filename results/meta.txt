@@ -1,5 +1,5 @@
 NAME                ID              SIZE      MODIFIED     
-qwen2.5:7b          845dbda0ea48    4.7 GB    7 hours ago     
+qwen2.5:7b          845dbda0ea48    4.7 GB    8 hours ago     
 llama3.2:latest     a80c4f17acd5    2.0 GB    5 weeks ago     
 llama3:latest       365c0bd3c000    4.7 GB    3 months ago    
 qwen2.5-coder:7b    dae161e27b0e    4.7 GB    6 months ago    
