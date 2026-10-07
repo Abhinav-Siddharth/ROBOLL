@@ -1,0 +1,6 @@
+tasks: all          # 20 tasks
+cells: all          # 11 cells
+seeds: [0]          # 1 seed (7-day version)
+methods: [B0, B1, B2, B3, B4, B5]
+max_failures: 8
+temperature: 0.7
