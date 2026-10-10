@@ -11,7 +11,8 @@ identical failure messages, so only the failure history can tell them apart.
 Contributions:
  (1) a fault benchmark of 11 cells (transient T1-T3, fixable, permanent) with identical surface symptoms for F and P faults;
  (2) a training-free explicit history-aware recovery policy (B5) and an LLM-with-history counterpart (B4) given the same information;
- (3) a controlled evaluation with regret against an oracle attempt count.
+ (3) a controlled evaluation with regret against an oracle attempt count, reporting both all-cell correctness (+13.2% for B5) and purely autonomous correctness (+19.5% for B5, as B4's F-cell advantage is human-assisted);
+ (4) an empirical characterization of structural argument omission (e.g. invalid calls in replanning) in open-weight 7B planners under JSON schemas.
 
 Assumptions (state them in the paper): an oracle monitor supplies a structured failure code; the initial plan is an oracle plan;
 the skill menu is fixed; everything runs in a simulator; one 7B model, one seed.
