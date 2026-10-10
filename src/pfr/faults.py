@@ -107,7 +107,8 @@ def build_fault(task: dict, cell: str, seed: int = 0) -> Fault:
     elif f.kind == "ST":
         if f.regime == "fixable":
             rng = random.Random(f"{task['id']}|{cell}|{seed}")
-            candidates = sorted(l for l in LOCS if l not in (orig_loc, "drawer"))
+            target_goal = task["goal"]["at"].get(anchor["obj"])
+            candidates = sorted(l for l in LOCS if l not in (orig_loc, "drawer", target_goal))
             f.true_loc = rng.choice(candidates)
         else:
             f.true_loc = "gone"

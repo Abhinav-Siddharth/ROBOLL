@@ -14,6 +14,7 @@
 
 Rules: every number in the text comes from results/tables/*.csv; every cited paper was opened; claims match prereg.md.
 
-### Limitations Requirements
+### Limitations & Disclosures Requirements
 - "The 3D replay is a kinematic visualisation without contact physics; it does not constitute evidence of physical executability."
-- "For 6 of 20 tasks the ST-F hidden location coincides with the goal location; results are also reported on the remaining 14 (`results/tables/st_f_sensitivity.csv`)."
+- "A generator bug (ST-F hidden location equal to the goal in 6/20 tasks) was found after the main run; affected episodes were re-run; method rankings were unchanged (`results/tables/st_f_sensitivity.csv`)."
+

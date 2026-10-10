@@ -37,9 +37,8 @@ def test_st_fault_object_starts_elsewhere():
     assert "gone" in ep.hidden
 
 
-def test_known_degenerate_st_f_tasks_are_flagged_by_goal_at_t0():
-    """Finding: for 6 of 20 tasks the ST-F hidden location equals the goal location, so the goal is
-    already true at t=0. The replay shows it; this test pins the number so a fix is a conscious change."""
+def test_no_degenerate_st_f_tasks_at_t0():
+    """Verify that with the fix, 0 of 20 tasks have ST-F hidden location equal to goal location."""
     from pfr.env import Env
     from pfr.faults import FaultyEnv, build_fault
     bad = []
@@ -48,4 +47,5 @@ def test_known_degenerate_st_f_tasks_are_flagged_by_goal_at_t0():
         e = Env(t["init_state"]); FaultyEnv(e, f)
         if e.goal_satisfied(t["goal"]):
             bad.append(t["id"])
-    assert bad == ["t01", "t04", "t07", "t13", "t17", "t19"]
+    assert bad == []
+
