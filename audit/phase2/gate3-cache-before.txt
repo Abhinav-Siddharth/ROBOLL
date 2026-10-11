@@ -1,0 +1,31 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_cache_namespace.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate3-cache-before
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_______________ test_legacy_cache_keys_and_entries_stay_readable _______________
+
+tmp_path = PosixPath('/tmp/pfr-phase2-gate3-cache-before/test_legacy_cache_keys_and_ent0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7eb2fc686ea0>
+
+    def test_legacy_cache_keys_and_entries_stay_readable(tmp_path, monkeypatch):
+        model, messages, schema, seed, temp = 'test-double', [], {'type': 'object'}, 0, 0.7
+        old = hashlib.sha256(json.dumps([model, messages, schema, seed, temp], sort_keys=True).encode()).hexdigest()
+>       assert llm.cache_key(model, messages, schema, seed, temp) == old
+               ^^^^^^^^^^^^^
+E       AttributeError: module 'pfr.llm' has no attribute 'cache_key'
+
+tests/test_cache_namespace.py:9: AttributeError
+__________ test_new_cache_identity_includes_digest_server_and_options __________
+
+    def test_new_cache_identity_includes_digest_server_and_options():
+        base = {'model_digest': 'a'*64, 'ollama_version': '0.40.0', 'num_ctx': 4096}
+>       key = llm.cache_key('qwen2.5:7b', [], {}, 0, 0.7, 'v2-format', base)
+              ^^^^^^^^^^^^^
+E       AttributeError: module 'pfr.llm' has no attribute 'cache_key'
+
+tests/test_cache_namespace.py:22: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_cache_namespace.py::test_legacy_cache_keys_and_entries_stay_readable
+FAILED tests/test_cache_namespace.py::test_new_cache_identity_includes_digest_server_and_options
+2 failed in 0.05s
+
+exit_code=1

@@ -47,3 +47,7 @@ Before: 6 failed. After: 410 passed. Skill-specific required arguments and allow
 
 Before: 4 failed. After: 414 passed. Malformed anchor calls do not consume transient counters or prerequisites; valid calls preserve their behavior. All 1320 v1 rows still replay with 0 mismatches. No inference yet.
 
+## Gate 3 cache versioning VERIFIED
+
+Before: 2 failed. After: 416 passed. Legacy keys are identical and cache entries remain readable without mutation. New namespaces include digest, server version and context option. New cache-hit and internal retry counts are recorded without altering legacy runner metrics. No inference yet.
+

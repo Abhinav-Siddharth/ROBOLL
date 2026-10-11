@@ -11,6 +11,18 @@ from jsonschema import ValidationError, validate
 from . import stub_llm
 
 CACHE_DIR = os.environ.get("PFR_CACHE", "results/cache")
+CACHE_NAMESPACE = os.environ.get("PFR_CACHE_NAMESPACE", "legacy-v1")
+CACHE_IDENTITY = {"model_digest": os.environ.get("PFR_MODEL_DIGEST"),
+                  "ollama_version": os.environ.get("PFR_OLLAMA_VERSION"), "num_ctx": 4096}
+
+
+def cache_key(model, messages, schema, seed, temp, namespace="legacy-v1", identity=None):
+    payload = [model, messages, schema, seed, temp]
+    if namespace != "legacy-v1":
+        if not identity or not identity.get("model_digest") or not identity.get("ollama_version"):
+            raise ValueError("New cache namespaces require model digest and server version")
+        payload = [namespace, identity, *payload]
+    return hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()
 
 
 def _ollama_chat(model, messages, schema, seed, temp):
@@ -32,16 +44,21 @@ def call(model, messages, schema, seed, temp=0.7):
     """Returns {"content": dict|None, "tokens": int, "latency_s": float}. Cached on disk."""
     if model == "stub":
         return stub_llm.respond(messages, schema, seed)
-    key = hashlib.sha256(json.dumps([model, messages, schema, seed, temp], sort_keys=True).encode()).hexdigest()
+    key = cache_key(model, messages, schema, seed, temp, CACHE_NAMESPACE, CACHE_IDENTITY)
     path = os.path.join(CACHE_DIR, f"{key}.json")
     if os.path.exists(path):
         with open(path) as f:
-            return json.load(f)
+            saved = json.load(f)
+            if CACHE_NAMESPACE != "legacy-v1":
+                validate(saved["content"], schema)
+            return {**saved, "cache_hit": True}
     out = None
     for attempt in range(3):  # a parse failure gets 2 more tries with a different seed
         try:
             out = _ollama_chat(model, messages, schema, seed + 100003 * attempt, temp)
             validate(out["content"], schema)
+            out["parse_retries"] = attempt
+            out["cache_hit"] = False
             break
         except (json.JSONDecodeError, KeyError, AttributeError, ValidationError):
             out = None
@@ -65,11 +82,15 @@ class LLMClient:
         self.tokens = 0
         self.latency = 0.0
         self.parse_failures = 0
+        self.cache_hits = 0
+        self.parse_retries = 0
 
     def call(self, messages, schema):
         seed = self.base_seed * 1000 + self.n_calls
         self.n_calls += 1
         out = call(self.model, messages, schema, seed, self.temp)
+        self.cache_hits += int(out.get("cache_hit", False))
+        self.parse_retries += out.get("parse_retries", 0)
         self.tokens += out["tokens"]
         self.latency += out["latency_s"]
         if out["content"] is None:
