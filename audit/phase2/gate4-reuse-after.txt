@@ -1,0 +1,5 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_reuse.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate4-reuse-after
+..                                                                       [100%]
+2 passed in 0.10s
+
+exit_code=0

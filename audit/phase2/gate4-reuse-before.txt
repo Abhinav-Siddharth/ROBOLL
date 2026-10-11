@@ -1,0 +1,23 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_reuse.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate4-reuse-before
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+________________ test_reuse_requires_exact_deterministic_trace _________________
+
+    def test_reuse_requires_exact_deterministic_trace():
+>       from pfr.reuse import verified_reuse
+E       ModuleNotFoundError: No module named 'pfr.reuse'
+
+tests/test_reuse.py:9: ModuleNotFoundError
+_______________ test_faulted_llm_method_cannot_be_marked_reused ________________
+
+    def test_faulted_llm_method_cannot_be_marked_reused():
+>       from pfr.reuse import verified_reuse
+E       ModuleNotFoundError: No module named 'pfr.reuse'
+
+tests/test_reuse.py:23: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_reuse.py::test_reuse_requires_exact_deterministic_trace - M...
+FAILED tests/test_reuse.py::test_faulted_llm_method_cannot_be_marked_reused
+2 failed in 0.11s
+
+exit_code=1
