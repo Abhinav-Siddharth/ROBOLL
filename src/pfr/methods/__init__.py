@@ -7,6 +7,7 @@ _MODULES = {
     "B0": ("b0_retry", "B0Retry"),
     "B1": ("b1_maxretry", "B1MaxRetry"),
     "B2": ("b2_nohistory", "B2NoHistory"),
+    "B2C": ("b2_context", "B2Context"),
     "B3": ("b3_replan", "B3Replan"),
     "B4": ("b4_llm_history", "B4LLMHistory"),
     "B5": ("b5_policy", "B5Policy"),

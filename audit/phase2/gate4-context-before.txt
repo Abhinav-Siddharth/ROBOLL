@@ -1,0 +1,31 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_matched_context.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate4-context-before
+F.                                                                       [100%]
+=================================== FAILURES ===================================
+_________ test_b2c_gets_budget_and_untried_values_but_no_prior_history _________
+
+    def test_b2c_gets_budget_and_untried_values_but_no_prior_history():
+        client = Capture()
+        ctx = Ctx(task={'goal_text': 'put apple on table'}, call=Call('pick', {'obj':'apple','grasp':'top'}),
+                  result=Result(ok=False, code='STATE_MISMATCH', detail='current error'),
+                  history=[{'call': {'skill':'pick'}, 'code':'STATE_MISMATCH',
+                            'detail':'SECRET PRIOR EVENT', 'decision':'retry'}],
+                  n_fail=2, max_failures=8, param_field='grasp', untried=['side','pinch'], llm=client)
+>       assert make_method('B2C').on_failure(ctx).mode == 'replan'
+               ^^^^^^^^^^^^^^^^^^
+
+tests/test_matched_context.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'B2C', policy_path = 'configs/policy.yaml'
+
+    def make_method(name: str, policy_path: str = "configs/policy.yaml"):
+>       mod, cls = _MODULES[name]
+                   ^^^^^^^^^^^^^^
+E       KeyError: 'B2C'
+
+src/pfr/methods/__init__.py:17: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_matched_context.py::test_b2c_gets_budget_and_untried_values_but_no_prior_history
+1 failed, 1 passed in 0.06s
+
+exit_code=1

@@ -76,7 +76,7 @@ def _msgs(user: str) -> list:
 
 
 # ------------------------------------------------------------------ MODE (B2, B4)
-def mode_messages(task, call, result, history=None, remaining=None, untried=None, n_fail=None) -> list:
+def mode_messages(task, call, result, history=None, remaining=None, untried=None, n_fail=None, context_only=False) -> list:
     """history=None -> NO history (method B2). history=list -> full history (method B4)."""
     lines = [
         f"Task: {task['goal_text']}",
@@ -84,7 +84,7 @@ def mode_messages(task, call, result, history=None, remaining=None, untried=None
         f"Error code: {result.code}",
         f"Error detail: {result.detail}",
     ]
-    if history is not None:
+    if history is not None or context_only:
         lines.append(f"Failures so far in this episode (including this one): {n_fail}")
         lines.append(f"The episode is cut off and counted as failed after more failures: {remaining} remain.")
         if history:
@@ -92,7 +92,7 @@ def mode_messages(task, call, result, history=None, remaining=None, untried=None
             for i, e in enumerate(history, 1):
                 lines.append(f"  {i}. call={json.dumps(e['call'])} code={e['code']} "
                              f"detail={e['detail']} decision={e['decision']}")
-        else:
+        elif history is not None:
             lines.append("This is the first failure in this episode.")
         if untried is not None:
             lines.append(f"Parameter values not yet tried for this call: {untried}")
