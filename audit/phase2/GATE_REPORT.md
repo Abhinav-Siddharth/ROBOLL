@@ -79,3 +79,5 @@ V2 notes are generated directly from CSVs and retain v1 alongside v2. Their adde
 ## FINAL VERIFIED
 
 Clean clone of d0a954092e6e41a7aea285dd1fc8557af42ef12d: editable install succeeds with declared dependencies; imports exclude the dev checkout; 425 passed in 2.80s, zero skips/failures. The clean-clone integrity check repeats every preservation, ID, saved-metric and replay check successfully. No independent model regeneration was done. See final-clone-* transcripts and FINAL_REPORT.md for outcomes and explicit remaining limitations.
+
+Final trace clarification VERIFIED: the three B5 ST-P incomplete episodes use partial non-empty plans (t05, t08, t09), not empty responses. No main v2 episode ends immediately after a replan. FINAL_REPORT.md reflects the actual traces; see final-partial-plan-check.txt. Scores and datasets are unchanged.

@@ -1,0 +1,4 @@
+qwen2.5:7b|B5|t05|ST-P|0 [('goto', {'loc': 'table'}, 'OK', ''), ('pick', {'obj': 'bowl', 'grasp': 'side'}, 'STATE_MISMATCH', 'replan'), ('goto', {'loc': 'counter'}, 'OK', '')]
+qwen2.5:7b|B5|t08|ST-P|0 [('goto', {'loc': 'shelf'}, 'OK', ''), ('pick', {'obj': 'cup', 'grasp': 'side'}, 'STATE_MISMATCH', 'replan'), ('goto', {'loc': 'counter'}, 'OK', ''), ('pick', {'obj': 'apple', 'grasp': 'top'}, 'OK', ''), ('goto', {'loc': 'shelf'}, 'OK', ''), ('place', {'obj': 'apple', 'loc': 'shelf', 'orient': 'upright'}, 'OK', '')]
+qwen2.5:7b|B5|t09|ST-P|0 [('goto', {'loc': 'sink'}, 'OK', ''), ('pick', {'obj': 'plate', 'grasp': 'pinch'}, 'STATE_MISMATCH', 'replan'), ('goto', {'loc': 'counter'}, 'OK', '')]
+Main episodes ending immediately after replan: 0
