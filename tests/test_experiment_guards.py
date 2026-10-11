@@ -27,3 +27,15 @@ def test_repeated_batch_summary_preserves_original_wall_time(tmp_path):
     assert second != path
     assert json.loads(path.read_text())['wall_time_s'] == 700
     assert json.loads(second.read_text())['newly_executed'] == 0
+
+
+def test_validation_rejects_id_coordinate_disagreement_even_if_replay_matches():
+    from pfr.runner import run_episode
+    from pfr.llm import LLMClient
+    from pfr.methods import make_method
+    from pfr.tasks import TASKS
+    row = run_episode(TASKS[0], 'TR-P', 0, make_method('B0'), LLMClient('qwen2.5:7b'))
+    original_id = row['episode_id']
+    row['task'] = 't13'  # Same anchor and initial prefix; permanent-failure replay still matches.
+    with pytest.raises(ValueError):
+        validate_rows([row], {original_id})

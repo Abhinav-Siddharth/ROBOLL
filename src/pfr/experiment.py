@@ -29,6 +29,9 @@ def validate_rows(rows, expected):
     if invalid or parse_failures:
         raise ValueError(f'Invalid calls={invalid}, exhausted parse/schema failures={parse_failures}')
     for row in rows:
+        coordinate_id = f"{row['model']}|{row['method']}|{row['task']}|{row['cell']}|{row['seed']}"
+        if row['episode_id'] != coordinate_id:
+            raise ValueError('Episode ID disagrees with row coordinates')
         reconstruct(row)
     return {'rows': len(rows), 'unique_ids': len(set(ids)), 'invalid_calls': invalid,
             'parse_failures': parse_failures, 'replay_mismatches': 0}
