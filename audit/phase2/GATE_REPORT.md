@@ -7,3 +7,7 @@ The user authorized completing all gates on 2026-10-11, including inference afte
 
 Before: 2 failed (missing derived metrics). After: 386 passed. Literal anchor calls, total failure cost and legacy regret are separate. Outputs: results/derived_v1/; runner.py is unchanged. No inference. See gate1a-before.txt, gate1a-after.txt, gate1a-derived.txt.
 
+## Gate 1b VERIFIED
+
+Before: 2 failed, 2 passed. After: 388 passed. Success and three correct-termination definitions are explicitly named, including the definition retaining permanent human escalation. No inference. See gate1b transcripts and results/derived_v1/outcomes_*.csv.
+

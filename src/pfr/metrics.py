@@ -12,3 +12,14 @@ def episode_costs(row):
             'total_failure_cost': failures,
             'anchor_regret': max(0, anchor - row['oracle_attempts']),
             'legacy_regret': row['regret']}
+
+
+def outcome_flags(row):
+    success = row['outcome'] == 'success'
+    no_human = row['human_queries'] == 0
+    return {'autonomous_success': success and no_human,
+            'human_assisted_success': success and not no_human,
+            'raw_correct': bool(row['correct']),
+            'no_human_correct': bool(row['correct']) and no_human,
+            'autonomous_solvable_or_permanent_correct':
+                bool(row['correct']) and (not row['solvable'] or no_human)}
