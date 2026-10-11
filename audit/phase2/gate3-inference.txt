@@ -1,0 +1,30 @@
+gate3: 10 newly completed; 10 total in output; elapsed=41.1s
+gate3: 20 newly completed; 20 total in output; elapsed=77.6s
+gate3: 30 newly completed; 30 total in output; elapsed=128.6s
+gate3: 40 newly completed; 40 total in output; elapsed=163.3s
+gate3: 50 newly completed; 50 total in output; elapsed=208.2s
+gate3: 60 newly completed; 60 total in output; elapsed=262.8s
+gate3: 70 newly completed; 70 total in output; elapsed=309.6s
+gate3: 80 newly completed; 80 total in output; elapsed=361.4s
+gate3: 90 newly completed; 90 total in output; elapsed=401.3s
+gate3: 100 newly completed; 100 total in output; elapsed=442.2s
+gate3: 110 newly completed; 110 total in output; elapsed=499.6s
+gate3: 120 newly completed; 120 total in output; elapsed=538.9s
+gate3: 130 newly completed; 130 total in output; elapsed=588.2s
+gate3: 140 newly completed; 140 total in output; elapsed=646.7s
+gate3: 150 newly completed; 150 total in output; elapsed=689.8s
+gate3: 160 newly completed; 160 total in output; elapsed=736.6s
+{
+  "rows": 160,
+  "unique_ids": 160,
+  "invalid_calls": 0,
+  "parse_failures": 0,
+  "replay_mismatches": 0,
+  "batch": "gate3",
+  "newly_executed": 160,
+  "started_at_utc": "2026-10-11T09:14:57.656952+00:00",
+  "wall_time_s": 736.6548434229999,
+  "code_commit": "a5d5b4772e29c3db42a0cd5f6e7d99fed2344d46",
+  "config": "configs/v2_gate.yaml",
+  "config_sha256": "b415ff251bfa59d8deb1a5a7423811f35c05d4d7ca0f965cbcfa563234bf264d"
+}

@@ -1,0 +1,19 @@
+$ /home/abhi_pop/pfr/.venv/bin/python analysis/check_batch.py results/raw/qwen_v2.jsonl --config configs/v2_gate.yaml --out audit/phase2/gate3-cell-results.csv
+{
+  "rows": 160,
+  "unique_ids": 160,
+  "invalid_calls": 0,
+  "parse_failures": 0,
+  "replay_mismatches": 0
+}
+method cell n invalid_episodes invalid_steps autonomous_success assisted_success
+B2 PRE-F 20 0 0 0 0
+B2 ST-F 20 0 0 0 0
+B3 PRE-F 20 0 0 17 0
+B3 ST-F 20 0 0 16 0
+B4 PRE-F 20 0 0 0 6
+B4 ST-F 20 0 0 3 9
+B5 PRE-F 20 0 0 17 0
+B5 ST-F 20 0 0 16 0
+
+exit_code=0

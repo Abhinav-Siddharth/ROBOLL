@@ -59,3 +59,7 @@ Before: 2 failed. After: 416 passed. Legacy keys are identical and cache entries
 
 Command: PYTHONPATH="" PYTHONDONTWRITEBYTECODE=1 PFR_CACHE=results/cache_v2 PFR_CACHE_NAMESPACE=v2-format PFR_MODEL_DIGEST=845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e PFR_OLLAMA_VERSION=0.40.0 .venv/bin/python scripts/check_llm.py qwen2.5:7b. Output is gate3-smoke.txt; exit 0. Frozen prompt text, tasks, policy and primary analysis hash also verified in gate3-frozen-design.txt.
 
+## Gate 3 completed VERIFIED
+
+160 exact unique IDs; zero invalid calls, zero exhausted parse/schema failures, zero replay mismatches. Actual wall time 736.65 seconds (12.28 minutes). See gate3-run.json, gate3-inference.txt, gate3-validation.txt and gate3-cell-results.csv. Gate continuation is structural and did not depend on success rates. The fixed B2C ablation and exact no-inference reuse tools were prepared while this batch ran; tests passed with 422 total.
+
