@@ -9,7 +9,7 @@ import subprocess
 import time
 
 import yaml
-from pfr.experiment import protect_output, expected_ids, validate_rows
+from pfr.experiment import protect_output, expected_ids, validate_rows, save_run_summary
 from pfr.logging_utils import load_done_ids, log_episode
 from pfr.tasks import TASKS
 from record_metadata import MARKER, get_json
@@ -84,7 +84,7 @@ def main():
     summary = {**verdict, 'batch': a.batch, 'newly_executed': executed, 'started_at_utc': started,
                'wall_time_s': time.monotonic()-start, 'code_commit': code,
                'config': a.config, 'config_sha256': hashlib.sha256(Path(a.config).read_bytes()).hexdigest()}
-    (ROOT/'audit/phase2'/f'{a.batch}-run.json').write_text(json.dumps(summary, indent=2)+'\n')
+    save_run_summary(ROOT/'audit/phase2'/f'{a.batch}-run.json', summary)
     print(json.dumps(summary, indent=2), flush=True)
 
 

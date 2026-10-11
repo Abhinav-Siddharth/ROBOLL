@@ -1,0 +1,18 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_experiment_guards.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-batch-manifest-before
+..F                                                                      [100%]
+=================================== FAILURES ===================================
+___________ test_repeated_batch_summary_preserves_original_wall_time ___________
+
+tmp_path = PosixPath('/tmp/pfr-phase2-batch-manifest-before/test_repeated_batch_summary_pr0')
+
+    def test_repeated_batch_summary_preserves_original_wall_time(tmp_path):
+        import json
+>       from pfr.experiment import save_run_summary
+E       ImportError: cannot import name 'save_run_summary' from 'pfr.experiment' (/home/abhi_pop/pfr/src/pfr/experiment.py)
+
+tests/test_experiment_guards.py:22: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_experiment_guards.py::test_repeated_batch_summary_preserves_original_wall_time
+1 failed, 2 passed in 0.07s
+
+exit_code=1

@@ -32,3 +32,18 @@ def validate_rows(rows, expected):
         reconstruct(row)
     return {'rows': len(rows), 'unique_ids': len(set(ids)), 'invalid_calls': invalid,
             'parse_failures': parse_failures, 'replay_mismatches': 0}
+
+
+def save_run_summary(path, summary):
+    """Keep the first batch timing; subsequent invocations get separate records."""
+    import json
+    import uuid
+    path = Path(path)
+    while True:
+        try:
+            with path.open('x') as f:
+                json.dump(summary, f, indent=2)
+                f.write('\n')
+            return path
+        except FileExistsError:
+            path = Path(path).with_name(Path(path).stem+'-invocation-'+uuid.uuid4().hex+'.json')

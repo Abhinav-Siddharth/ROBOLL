@@ -1,0 +1,15 @@
+episode_id,outcome,last_code,last_detail,missing_goal_components
+qwen2.5:7b|B3|t04|ST-F|0,incomplete,OK,ok,drawer_open: True instead of False
+qwen2.5:7b|B5|t04|ST-F|0,incomplete,OK,ok,drawer_open: True instead of False
+qwen2.5:7b|B3|t07|PRE-F|0,cap_exceeded,PRECOND_UNMET,precondition: prior visit to sink required,cup: shelf instead of sink
+qwen2.5:7b|B5|t07|PRE-F|0,abstain,PRECOND_UNMET,precondition: prior visit to sink required,cup: shelf instead of sink
+qwen2.5:7b|B3|t10|ST-F|0,cap_exceeded,STATE_MISMATCH,object not found at current location,knob_key: sink instead of shelf; drawer_open: True instead of False
+qwen2.5:7b|B5|t10|ST-F|0,abstain,STATE_MISMATCH,object not found at current location,knob_key: sink instead of shelf; drawer_open: True instead of False
+qwen2.5:7b|B3|t10|PRE-F|0,incomplete,OK,ok,drawer_open: True instead of False
+qwen2.5:7b|B5|t10|PRE-F|0,incomplete,OK,ok,drawer_open: True instead of False
+qwen2.5:7b|B3|t14|ST-F|0,cap_exceeded,STATE_MISMATCH,object not found at current location,plate: counter instead of table
+qwen2.5:7b|B5|t14|ST-F|0,abstain,STATE_MISMATCH,object not found at current location,plate: counter instead of table
+qwen2.5:7b|B3|t17|PRE-F|0,cap_exceeded,PRECOND_UNMET,precondition: prior visit to sink required,apple: counter instead of sink
+qwen2.5:7b|B5|t17|PRE-F|0,abstain,PRECOND_UNMET,precondition: prior visit to sink required,apple: counter instead of sink
+qwen2.5:7b|B3|t18|ST-F|0,incomplete,OK,ok,drawer_open: True instead of False
+qwen2.5:7b|B5|t18|ST-F|0,incomplete,OK,ok,drawer_open: True instead of False
