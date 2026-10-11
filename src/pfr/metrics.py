@@ -23,3 +23,22 @@ def outcome_flags(row):
             'no_human_correct': bool(row['correct']) and no_human,
             'autonomous_solvable_or_permanent_correct':
                 bool(row['correct']) and (not row['solvable'] or no_human)}
+
+
+def task_cluster_boot(df, a, b, metric, mask, alpha=0.05/3, seed=0, n_boot=10000):
+    """Pair units first, then resample entire tasks, preserving the row-mean estimand."""
+    import numpy as np
+    piv = df[mask].pivot_table(index=['task', 'cell', 'seed'], columns='method',
+                              values=metric, aggfunc='mean')
+    if a not in piv or b not in piv:
+        return np.nan, np.nan, np.nan, 0
+    differences = (piv[a] - piv[b]).dropna()
+    if differences.empty:
+        return np.nan, np.nan, np.nan, 0
+    grouped = differences.groupby(level='task')
+    sums = grouped.sum().to_numpy()
+    sizes = grouped.size().to_numpy()
+    draws = np.random.default_rng(seed).integers(0, len(sums), (n_boot, len(sums)))
+    means = sums[draws].sum(axis=1) / sizes[draws].sum(axis=1)
+    lo, hi = np.percentile(means, [100*alpha/2, 100*(1-alpha/2)])
+    return float(differences.mean()), float(lo), float(hi), len(differences)

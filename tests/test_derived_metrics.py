@@ -38,3 +38,27 @@ def test_human_assisted_success_is_only_raw_correct():
     assert not flags['autonomous_success']
     assert not flags['no_human_correct']
     assert not flags['autonomous_solvable_or_permanent_correct']
+
+
+def test_cluster_bootstrap_keeps_cells_of_a_task_together():
+    import numpy as np
+    import pandas as pd
+    from pfr.metrics import task_cluster_boot
+    # Perfectly correlated cells must not narrow the two-task interval.
+    rows = [{'task': t, 'cell': c, 'seed': 0, 'method': m, 'correct': value}
+            for t, a in [('a', 1), ('b', 0)] for c in range(10)
+            for m, value in [('B5', a), ('B4', 0)]]
+    diff, lo, hi, n = task_cluster_boot(pd.DataFrame(rows), 'B5', 'B4', 'correct',
+                                       np.ones(len(rows), dtype=bool))
+    assert (diff, lo, hi, n) == (0.5, 0.0, 1.0, 20)
+
+
+def test_cluster_bootstrap_pairs_before_resampling():
+    import numpy as np
+    import pandas as pd
+    from pfr.metrics import task_cluster_boot
+    rows = [{'task': 'a', 'cell': 'x', 'seed': 0, 'method': 'B5', 'correct': 1},
+            {'task': 'a', 'cell': 'x', 'seed': 0, 'method': 'B4', 'correct': 0},
+            {'task': 'b', 'cell': 'x', 'seed': 0, 'method': 'B5', 'correct': 0}]
+    assert task_cluster_boot(pd.DataFrame(rows), 'B5', 'B4', 'correct',
+                             np.ones(3, dtype=bool)) == (1.0, 1.0, 1.0, 1)

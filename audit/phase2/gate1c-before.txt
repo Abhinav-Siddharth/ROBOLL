@@ -1,0 +1,27 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_derived_metrics.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate1c-before
+....FF                                                                   [100%]
+=================================== FAILURES ===================================
+____________ test_cluster_bootstrap_keeps_cells_of_a_task_together _____________
+
+    def test_cluster_bootstrap_keeps_cells_of_a_task_together():
+        import numpy as np
+        import pandas as pd
+>       from pfr.metrics import task_cluster_boot
+E       ImportError: cannot import name 'task_cluster_boot' from 'pfr.metrics' (/home/abhi_pop/pfr/src/pfr/metrics.py)
+
+tests/test_derived_metrics.py:46: ImportError
+________________ test_cluster_bootstrap_pairs_before_resampling ________________
+
+    def test_cluster_bootstrap_pairs_before_resampling():
+        import numpy as np
+        import pandas as pd
+>       from pfr.metrics import task_cluster_boot
+E       ImportError: cannot import name 'task_cluster_boot' from 'pfr.metrics' (/home/abhi_pop/pfr/src/pfr/metrics.py)
+
+tests/test_derived_metrics.py:59: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_derived_metrics.py::test_cluster_bootstrap_keeps_cells_of_a_task_together
+FAILED tests/test_derived_metrics.py::test_cluster_bootstrap_pairs_before_resampling
+2 failed, 4 passed in 0.26s
+
+exit_code=1

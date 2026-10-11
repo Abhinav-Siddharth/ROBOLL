@@ -4,7 +4,7 @@ import importlib.util
 from pathlib import Path
 
 import pandas as pd
-from pfr.metrics import episode_costs, outcome_flags
+from pfr.metrics import episode_costs, outcome_flags, task_cluster_boot
 
 SPEC = importlib.util.spec_from_file_location('frozen_primary', Path(__file__).with_name('make_figures.py'))
 PRIMARY = importlib.util.module_from_spec(SPEC)
@@ -66,6 +66,23 @@ def derive(path, out):
                            diff=round(d, 3), ci_lo=round(lo, 3), ci_hi=round(hi, 3),
                            reading=PRIMARY.reading(lo, hi, True)))
     pd.DataFrame(h2).to_csv(out/'h2_cost_definitions.csv', index=False)
+    # Reuse the exact primary hypothesis selections; only the resampling unit changes.
+    import inspect
+    import ast
+    source = inspect.getsource(PRIMARY.main)
+    tree = ast.parse(source)
+    assignment = next(node for node in tree.body[0].body
+                      if isinstance(node, ast.Assign)
+                      and any(isinstance(t, ast.Name) and t.id == 'tests' for t in node.targets))
+    specs = eval(compile(ast.Expression(assignment.value), '<frozen hypothesis masks>', 'eval'),
+                 {'df': df, 'g': df.group})
+    cluster = []
+    for hid, a, b, metric, mask, label, negative in specs:
+        d, lo, hi, n = task_cluster_boot(df, a, b, metric, mask)
+        cluster.append(dict(hypothesis=hid, comparison=f'{a} - {b}', subset_metric=label,
+                            n_pairs=n, diff=round(d, 3), ci_lo=round(lo, 3), ci_hi=round(hi, 3),
+                            reading=PRIMARY.reading(lo, hi, negative)))
+    pd.DataFrame(cluster).to_csv(out/'hypotheses_task_cluster.csv', index=False)
     print(f'{len(df)} unique episodes; costs and H2 definitions written to {out}')
     return df
 
