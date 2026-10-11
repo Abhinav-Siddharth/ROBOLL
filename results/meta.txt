@@ -33,5 +33,23 @@ PFR_PHASE2_PROVENANCE_JSON
   "seed_rule": "base_seed * 1000 + call_index",
   "legacy_cache_namespace": "results/cache",
   "new_cache_namespace": "results/cache_v2",
-  "scope": "Current installed model; historical v1 version not inferred"
+  "scope": "Current installed model; historical v1 version not inferred",
+  "python_version": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "os": "Linux-7.1.5-76070105-generic-x86_64-with-glibc2.39",
+  "os_release": {
+    "NAME": "Pop!_OS",
+    "ID": "pop",
+    "PRETTY_NAME": "Pop!_OS 24.04 LTS",
+    "VERSION": "24.04 LTS",
+    "ID_LIKE": "ubuntu debian",
+    "VERSION_ID": "24.04",
+    "HOME_URL": "https://pop.system76.com",
+    "SUPPORT_URL": "https://support.system76.com",
+    "BUG_REPORT_URL": "https://github.com/pop-os/pop/issues",
+    "PRIVACY_POLICY_URL": "https://system76.com/privacy",
+    "VERSION_CODENAME": "noble",
+    "UBUNTU_CODENAME": "noble",
+    "LOGO": "distributor-logo-pop-os"
+  },
+  "phase3_metadata_note": "Python and OS collected locally at freeze; Ollama version/model/digest retained from the recorded Phase 2 snapshot, not queried in Phase 3. Current Ollama state: unknown."
 }
