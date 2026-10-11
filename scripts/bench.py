@@ -1,4 +1,4 @@
-"""Day 1: latency benchmark. Prints the median seconds per structured LLM call."""
+"""latency benchmark. Prints the median seconds per structured LLM call."""
 import json
 import time
 

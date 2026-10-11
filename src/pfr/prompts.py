@@ -1,4 +1,4 @@
-"""All prompt text lives here. FREEZE this file at the end of Day 4: never edit prompts afterwards
+"""All prompt text lives here. FREEZE this file. Never edit prompts afterwards
 (the cache key includes the prompt, so edits also invalidate cached results)."""
 from __future__ import annotations
 

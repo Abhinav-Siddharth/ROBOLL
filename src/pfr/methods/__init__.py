@@ -1,4 +1,4 @@
-"""Method registry. Modules are imported lazily so you can build one day at a time."""
+"""Method registry. Modules are imported lazily so you can build one at a time."""
 import importlib
 
 import yaml

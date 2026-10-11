@@ -3,6 +3,6 @@ pydantic
 numpy
 pandas
 matplotlib
-pytest
+pytest==9.1.1
 pyyaml
 tqdm

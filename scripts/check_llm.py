@@ -1,4 +1,4 @@
-"""Day 4 checkpoint: do schema outputs always parse (20 calls per schema)? Does the cache work?
+"""Do schema outputs always parse (20 calls per schema)? Does the cache work?
 
     python scripts/check_llm.py qwen2.5:7b      # run it TWICE: the second run must be (almost) instant
 """
