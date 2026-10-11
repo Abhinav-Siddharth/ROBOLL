@@ -15,3 +15,7 @@ Before: 2 failed, 2 passed. After: 388 passed. Success and three correct-termina
 
 Before: 2 failed, 4 passed. After: 390 passed. Task-cluster bootstrap pairs first and keeps every task cell together, using the original hypothesis masks and CSV layout. Primary analysis/make_figures.py is unchanged. See hypotheses_task_cluster.csv and gate1c transcripts.
 
+## Gate 1d VERIFIED
+
+Before: 2 failed. After: 392 passed. Appending quarantines an interrupted final record, or inserts a newline after a complete JSON record lacking one. No archived log was repaired or overwritten. See gate1d transcripts.
+

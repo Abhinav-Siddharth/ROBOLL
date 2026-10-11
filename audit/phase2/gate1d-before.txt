@@ -1,0 +1,85 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_resume_tail.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate1d-before
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+______________ test_resume_quarantines_partial_tail_before_append ______________
+
+tmp_path = PosixPath('/tmp/pfr-phase2-gate1d-before/test_resume_quarantines_partia0')
+
+    def test_resume_quarantines_partial_tail_before_append(tmp_path):
+        path = tmp_path/'run.jsonl'
+        good = json.dumps({'episode_id': 'done'})+'\n'
+        tail = b'{"episode_id":"interrupted"'
+        path.write_bytes(good.encode()+tail)
+        assert load_done_ids(str(path)) == {'done'}
+        log_episode({'episode_id': 'next'}, str(path))
+>       assert [json.loads(l)['episode_id'] for l in path.read_text().splitlines()] == ['done', 'next']
+                ^^^^^^^^^^^^^
+
+tests/test_resume_tail.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.12/json/__init__.py:346: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/json/decoder.py:337: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0x7228cf0467e0>
+s = '{"episode_id":"interrupted"{"episode_id": "next"}', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+>           obj, end = self.scan_once(s, idx)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+E           json.decoder.JSONDecodeError: Expecting ',' delimiter: line 1 column 28 (char 27)
+
+/usr/lib/python3.12/json/decoder.py:353: JSONDecodeError
+___________ test_resume_preserves_valid_record_without_final_newline ___________
+
+tmp_path = PosixPath('/tmp/pfr-phase2-gate1d-before/test_resume_preserves_valid_re0')
+
+    def test_resume_preserves_valid_record_without_final_newline(tmp_path):
+        path = tmp_path/'run.jsonl'
+        path.write_text(json.dumps({'episode_id': 'done'}))
+        log_episode({'episode_id': 'next'}, str(path))
+>       assert [json.loads(l)['episode_id'] for l in path.read_text().splitlines()] == ['done', 'next']
+                ^^^^^^^^^^^^^
+
+tests/test_resume_tail.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.12/json/__init__.py:346: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0x7228cf0467e0>
+s = '{"episode_id": "done"}{"episode_id": "next"}'
+_w = <built-in method match of re.Pattern object at 0x7228cf1ea810>
+
+    def decode(self, s, _w=WHITESPACE.match):
+        """Return the Python representation of ``s`` (a ``str`` instance
+        containing a JSON document).
+    
+        """
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+        end = _w(s, end).end()
+        if end != len(s):
+>           raise JSONDecodeError("Extra data", s, end)
+E           json.decoder.JSONDecodeError: Extra data: line 1 column 23 (char 22)
+
+/usr/lib/python3.12/json/decoder.py:340: JSONDecodeError
+=========================== short test summary info ============================
+FAILED tests/test_resume_tail.py::test_resume_quarantines_partial_tail_before_append
+FAILED tests/test_resume_tail.py::test_resume_preserves_valid_record_without_final_newline
+2 failed in 0.03s
+
+exit_code=1
