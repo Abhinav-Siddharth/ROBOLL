@@ -1,0 +1,17 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_provenance.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate1g-before
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_model_snapshot_records_immutable_identity_and_options __________
+
+    def test_model_snapshot_records_immutable_identity_and_options():
+        text = (ROOT/'results/meta.txt').read_text()
+        marker = '\nPFR_PHASE2_PROVENANCE_JSON\n'
+>       assert marker in text
+E       AssertionError: assert '\nPFR_PHASE2_PROVENANCE_JSON\n' in 'NAME                ID              SIZE      MODIFIED     \nqwen2.5:7b          845dbda0ea48    4.7 GB    8 hours ag...est       365c0bd3c000    4.7 GB    3 months ago    \nqwen2.5-coder:7b    dae161e27b0e    4.7 GB    6 months ago    \n'
+
+tests/test_provenance.py:10: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_provenance.py::test_model_snapshot_records_immutable_identity_and_options
+1 failed in 0.01s
+
+exit_code=1

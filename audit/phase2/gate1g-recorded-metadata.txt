@@ -1,0 +1,41 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -c from pathlib import Path;print(Path('results/meta.txt').read_text())
+NAME                ID              SIZE      MODIFIED     
+qwen2.5:7b          845dbda0ea48    4.7 GB    8 hours ago     
+llama3.2:latest     a80c4f17acd5    2.0 GB    5 weeks ago     
+llama3:latest       365c0bd3c000    4.7 GB    3 months ago    
+qwen2.5-coder:7b    dae161e27b0e    4.7 GB    6 months ago
+
+PFR_PHASE2_PROVENANCE_JSON
+{
+  "recorded_at_utc": "2026-10-11T09:04:22.881814+00:00",
+  "model": "qwen2.5:7b",
+  "model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "ollama_server_version": "0.40.0",
+  "ollama_client_version_output": "ollama version is 0.40.0",
+  "details": {
+    "parent_model": "",
+    "format": "gguf",
+    "family": "qwen2",
+    "families": [
+      "qwen2"
+    ],
+    "parameter_size": "7.6B",
+    "quantization_level": "Q4_K_M",
+    "context_length": 32768,
+    "embedding_length": 3584,
+    "runner": "ggml"
+  },
+  "template_sha256": "eb4402837c7829a690fa845de4d7f3fd842c2adee476d5341da8a46ea9255175",
+  "model_parameters": "",
+  "options": {
+    "temperature": 0.7,
+    "num_ctx": 4096
+  },
+  "seed_rule": "base_seed * 1000 + call_index",
+  "legacy_cache_namespace": "results/cache",
+  "new_cache_namespace": "results/cache_v2",
+  "scope": "Current installed model; historical v1 version not inferred"
+}
+
+
+exit_code=0

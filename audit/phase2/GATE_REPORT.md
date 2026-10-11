@@ -27,3 +27,7 @@ Before: 5 failed mutation tests. After: 397 passed. Codes, details, attempt orde
 
 Before: 2 failed. After: 399 passed. Runtime dependencies and test/viewer extras are declared. README names the 165-episode stage-1 config versus the 330-episode archived pilot. Installation is verified again in the final clean-clone check. No inference.
 
+## Gate 1g VERIFIED
+
+Before: 1 failed. After: 400 passed. scripts/record_metadata.py read /api/tags, /api/show and /api/version without generation. Model digest 845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e; server/client 0.40.0. Existing metadata retained; old cache keys remain unchanged. Namespace results/cache_v2 is reserved for new runs. Historical v1 server identity remains UNVERIFIED.
+
