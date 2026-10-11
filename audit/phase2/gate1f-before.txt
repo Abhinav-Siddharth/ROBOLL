@@ -1,0 +1,37 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_packaging_contract.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate1f-before
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+______ test_editable_install_declares_execution_and_analysis_dependencies ______
+
+    def test_editable_install_declares_execution_and_analysis_dependencies():
+        config = tomllib.loads((ROOT/'pyproject.toml').read_text())
+        deps = config['project'].get('dependencies', [])
+        names = {d.split('>')[0].split('=')[0].split('[')[0].lower() for d in deps}
+>       assert {'ollama', 'pydantic', 'pyyaml', 'tqdm', 'numpy', 'pandas',
+                'matplotlib', 'jsonschema'} <= names
+E       AssertionError: assert {'jsonschema'...ydantic', ...} <= set()
+E         
+E         Extra items in the left set:
+E         'pydantic'
+E         'pandas'
+E         'numpy'
+E         'matplotlib'
+E         'pyyaml'...
+E         
+E         ...Full output truncated (3 lines hidden), use '-vv' to show
+
+tests/test_packaging_contract.py:11: AssertionError
+________ test_readme_distinguishes_stage_one_pilot_from_archived_pilot _________
+
+    def test_readme_distinguishes_stage_one_pilot_from_archived_pilot():
+        readme = (ROOT/'README.md').read_text()
+>       assert 'stage 1 only' in readme
+E       AssertionError: assert 'stage 1 only' in '# pfr: persistent failure recovery for LLM-based robot agents\n\nControlled simulator study: when a skill keeps faili...lysis/             summarize.py (go/no-go), make_figures.py\n    paper/                claim, prereg, notes, outline\n'
+
+tests/test_packaging_contract.py:17: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_packaging_contract.py::test_editable_install_declares_execution_and_analysis_dependencies
+FAILED tests/test_packaging_contract.py::test_readme_distinguishes_stage_one_pilot_from_archived_pilot
+2 failed in 0.01s
+
+exit_code=1

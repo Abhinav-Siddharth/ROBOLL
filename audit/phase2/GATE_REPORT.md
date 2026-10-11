@@ -23,3 +23,7 @@ Before: 2 failed. After: 392 passed. Appending quarantines an interrupted final 
 
 Before: 5 failed mutation tests. After: 397 passed. Codes, details, attempt order, final goal/outcome and correctness are enforced. All 1320 v1 rows replay with 0 mismatches. No inference.
 
+## Gate 1f VERIFIED
+
+Before: 2 failed. After: 399 passed. Runtime dependencies and test/viewer extras are declared. README names the 165-episode stage-1 config versus the 330-episode archived pilot. Installation is verified again in the final clean-clone check. No inference.
+

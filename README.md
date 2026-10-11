@@ -32,3 +32,13 @@ Methods B0-B5, 20 tasks, 11 fault cells (transient / fixable / permanent), regre
     configs/              pilot, main, timing, policy thresholds
     analysis/             summarize.py (go/no-go), make_figures.py
     paper/                claim, prereg, notes, outline
+
+## Pilot stages
+
+`configs/pilot.yaml` is stage 1 only: 5 tasks x 11 cells x B0/B3/B4 = 165 episodes.
+The archived `results/raw/pilot.jsonl` contains a later six-method pilot of 330 episodes.
+To reproduce that design explicitly use `--methods B0,B1,B2,B3,B4,B5`; do not append to
+or overwrite the archive. Use a new output path and record the exact config.
+
+An editable install declares runtime and analysis dependencies. Test and viewer tools
+are available through `pip install -e '.[test,viz]'`. Viewer dependencies are optional.
