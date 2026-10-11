@@ -67,3 +67,11 @@ Command: PYTHONPATH="" PYTHONDONTWRITEBYTECODE=1 PFR_CACHE=results/cache_v2 PFR_
 
 640 additional exact unique episodes passed the strongest current ID-coordinate, format, parse and replay checks. Zero invalid calls, exhausted parse/schema failures and replay mismatches. Wall time 1988.04 seconds (33.13 minutes); together with Gate 3, all 800 new main faulted episodes are complete. Experimental prompts/policies remained frozen. Metadata-repeat and ID-coordinate guards added with failing-before/passing-after tests; full suite 424 passed.
 
+## Gate 4 completed VERIFIED
+
+All 200 B2C faulted episodes are exact, unique and valid; wall time 632.35 seconds (10.54 minutes). V2 main has 800 new rows plus 520 controls verified by exact no-inference execution and explicit source hashes. All 5278 recorded model requests across main and ablation reconcile with 2752 unique cache keys, with zero missing keys, mode/plan/token/latency mismatches or missing place.loc fields. Saved cost/group/failure/decision metrics independently match all 1320 v1, 1320 v2 and 200 ablation rows.
+
+On 200 faulted cases, raw correctness is B2=0.400, B2C=0.440, B4=0.680. Zero-human correctness is 0.400, 0.410, 0.415. B2C-B4 zero-human difference -0.005 has paired-row and task-cluster CI [-0.025, 0.015]. This does not prove equivalence. The raw difference -0.240 favors B4 under the secondary comparisons, while autonomous differences are small and uncertain. All primary analysis code, task and policy hashes remain frozen and all 19 protected v1 artifacts match. See gate4-integrity.txt, gate4-all-cache-verification.txt and results/v2/ablation_comparisons.csv.
+
+V2 notes are generated directly from CSVs and retain v1 alongside v2. Their added consistency test failed before regeneration and passed afterward; full suite 425 passed. Figures 1-4 retain the primary code; companion figures label literal costs and zero-human correctness explicitly. The heatmap and literal-cost panel were visually inspected.
+

@@ -1,0 +1,4 @@
+$ /home/abhi_pop/pfr/.venv/bin/python analysis/write_notes.py --v2 results/v2
+Result and hypothesis notes generated from saved CSV tables
+
+exit_code=0

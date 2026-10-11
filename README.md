@@ -42,3 +42,36 @@ or overwrite the archive. Use a new output path and record the exact config.
 
 An editable install declares runtime and analysis dependencies. Test and viewer tools
 are available through `pip install -e '.[test,viz]'`. Viewer dependencies are optional.
+
+## Phase 2 replication
+
+The prospective amendment is in `paper/prereg.md` (commit `9924f5e`).
+V1 is preserved at `results/raw/qwen.jsonl`; v2 is primary at
+`results/raw/qwen_v2.jsonl` with 800 new faulted episodes and 520 proven unchanged
+controls. Reuse source IDs and hashes are recorded in each reused row. The 200-row
+matched-context B2C ablation is `results/raw/qwen_v2_ablation.jsonl`.
+
+New runs use `scripts/run_v2.py` and `results/cache_v2`, including model digest,
+Ollama version and options in their cache identity. The legacy cache stays readable.
+These batches are already complete; use a new dataset path for a new experiment.
+Never write to the source archives or regenerate original tables/figures in place.
+
+Inspect `audit/phase2/GATE_REPORT.md` for actual commands, test transcripts, wall
+measurements and limitations. Derived v1 metrics are in `results/derived_v1/`.
+V2 primary tables are in `results/v2/results/tables/`, additional definitions and
+cluster intervals in `results/v2/derived/`, and figures in `results/v2/figures/`.
+`results/v2/comparison.csv` gives before/after values; ablation comparisons are
+secondary and use the same 200 faulted cases for every method.
+
+Verification without inference:
+
+```bash
+PYTHONPATH='' .venv/bin/python scripts/verify_phase2.py
+PYTHONPATH='' .venv/bin/python -m pytest -q
+```
+
+Primary analysis requires an explicit dataset argument and a new working directory.
+Do not use the implicit raw-file glob, which would pool pilot and archived versions.
+The primary regret field retains its original global-failure-based convention.
+Companion tables/figures report literal anchor regret and total failure cost.
+Neither low regret nor correct permanent termination implies goal completion.

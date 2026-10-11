@@ -36,3 +36,12 @@ def test_bibliography_contains_verified_metadata():
     for arxiv in ['2211.09935', '2608.11977', '2606.01416', '2604.11378',
                   '2606.05806', '2609.22538', '2602.21198']:
         assert f'eprint = {{{arxiv}}}' in text
+
+
+def test_v2_paper_table_matches_new_primary_data():
+    text = (ROOT/'paper/notes/results.md').read_text()
+    assert 'V2 primary replication' in text
+    for row in csv.DictReader((ROOT/'results/v2/results/tables/overall.csv').open()):
+        cells = [row['method']] + [f"{float(row[k]):.3f}" for k in
+                 ['correct', 'regret', 'loop', 'human_queries', 'tokens', 'latency_s']]
+        assert '| '+' | '.join(cells)+' |' in text

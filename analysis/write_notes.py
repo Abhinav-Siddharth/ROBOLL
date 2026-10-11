@@ -76,6 +76,7 @@ def write_notes(v2=None):
         v2 = Path(v2)
         results += '\n## V2 primary replication\n\n'+markdown_csv(v2/'results/tables/overall.csv', overall_fields)
         results += '\n## V2 costs\n\n'+markdown_csv(v2/'derived/costs_overall.csv')
+        results += '\n## V2 solvable success split\n\n'+markdown_csv(v2/'derived/solvable_success.csv')
         results += '\n## V2 named outcomes\n\n'+markdown_csv(v2/'derived/outcomes_overall.csv')
         results += ('\nV2 is the primary H1-H4 dataset under the prospective amendment. '
                     'The original v1 data and tables remain visible above. '
@@ -84,6 +85,30 @@ def write_notes(v2=None):
         hypothesis += '\n## V2 primary paired-row bootstrap\n\n'+markdown_csv(v2/'results/tables/hypotheses.csv')
         hypothesis += '\n## V2 task-cluster sensitivity\n\n'+markdown_csv(v2/'derived/hypotheses_task_cluster.csv')
         hypothesis += '\n## V2 H2 cost-definition sensitivity\n\n'+markdown_csv(v2/'derived/h2_cost_definitions.csv')
+        primary = list(csv.DictReader((v2/'results/tables/hypotheses.csv').open()))
+        cluster = list(csv.DictReader((v2/'derived/hypotheses_task_cluster.csv').open()))
+        h1 = next(r for r in primary if r['hypothesis']=='H1' and r['comparison']=='B5 - B3')
+        h1c = next(r for r in cluster if r['hypothesis']=='H1' and r['comparison']=='B5 - B3')
+        h3 = next(r for r in primary if r['hypothesis']=='H3' and r['comparison']=='B5 - B4')
+        hypothesis += (f"\nV2 H1 B5-B3: paired-row CI [{h1['ci_lo']}, {h1['ci_hi']}], "
+                       f"task-cluster CI [{h1c['ci_lo']}, {h1c['ci_hi']}]. "
+                       "The sampling unit matters; neither comparison is an equivalence test. "
+                       f"V2 H3 B5-B4 difference {h3['diff']}, CI [{h3['ci_lo']}, {h3['ci_hi']}], "
+                       f"{h3['reading']}. This contrasts with the v1 F-cell reading above.\n")
+        results += ('\nResidual format-valid failures include missing drawer closure and failure to visit '
+                    'a required location. Goal text does not explicitly state every drawer-closure predicate, '
+                    'although the original remaining plan includes close actions. The causal contribution '
+                    'of goal-specification clarity is untested. V2 does not add formal goal information. '
+                    'A valid empty replan is classified as incomplete, not permanent-fault abstention; '
+                    'we retain this original outcome convention. Low anchor regret alone is not success.\n')
+        if (v2/'ablation_comparisons.csv').exists():
+            results += '\n## Matched-context ablation, faulted cells only\n\n'+markdown_csv(v2/'faulted_method_means.csv')
+            hypothesis += ('\n## Secondary matched-context comparisons\n\n'+markdown_csv(v2/'ablation_comparisons.csv')+
+                           '\nThese 200-pair comparisons are post-audit secondary analyses. B2C retains current '
+                           'failure count, remaining budget and untried values but removes prior failure history. '
+                           'Compare with B2 for the hint bundle and B4 for history conditional on those hints. '
+                           'The intervals do not establish familywise control over every exploratory comparison.\n')
+
     (ROOT/'paper/notes/results.md').write_text(results)
     (ROOT/'paper/notes/hypothesis.md').write_text(hypothesis)
     print('Result and hypothesis notes generated from saved CSV tables')

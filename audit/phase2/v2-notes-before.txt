@@ -1,0 +1,16 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_paper_consistency.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-v2-notes-before
+....F                                                                    [100%]
+=================================== FAILURES ===================================
+_________________ test_v2_paper_table_matches_new_primary_data _________________
+
+    def test_v2_paper_table_matches_new_primary_data():
+        text = (ROOT/'paper/notes/results.md').read_text()
+>       assert 'V2 primary replication' in text
+E       AssertionError: assert 'V2 primary replication' in '# Results: v1 archive and format-validity replication\n\nThe v1 archive contains 1320 episodes. The `regret` column b...ms retain original cache-entry timings and are not execution wall time. The kinematic replay has no contact physics.\n'
+
+tests/test_paper_consistency.py:43: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_paper_consistency.py::test_v2_paper_table_matches_new_primary_data
+1 failed, 4 passed in 0.02s
+
+exit_code=1
