@@ -1,0 +1,78 @@
+GENERATOR_CHANGED_TASKS ['t01', 't02', 't04', 't07', 't09', 't10', 't13', 't16', 't17', 't18', 't19', 't20'] expected_affected_episodes 72 old_initial_goal_true ['t01', 't04', 't07', 't13', 't17', 't19']
+CORRECTED_WITNESSES solvable_cases 140 bad []
+SENSITIVITY identical True
+HYPOTHESES rows 16 16 changed_rows 0 changed_intervals 0
+TABLE_BYTE_DIFF by_group.csv False
+TABLE_BYTE_DIFF correct_by_cell.csv False
+TABLE_BYTE_DIFF hypotheses.csv False
+TABLE_BYTE_DIFF overall.csv False
+TABLE_BYTE_DIFF st_f_sensitivity.csv False
+FIGURE_BYTE_DIFF fig1_correct_heatmap.png False
+FIGURE_BYTE_DIFF fig2_regret_by_regime.png False
+FIGURE_BYTE_DIFF fig3_decisions.png False
+FIGURE_BYTE_DIFF fig4_tokens_vs_correct.png False
+TRACE qwen2.5:7b|B3|t01|TR-T1|0 cap_exceeded attempts 9 human 0
+(1, 'goto', {'loc': 'counter'}, 'OK', '')
+(2, 'pick', {'obj': 'apple', 'grasp': 'top'}, 'EXEC_TRANSIENT', 'replan')
+(3, 'pick', {'obj': 'apple', 'grasp': 'side'}, 'OK', '')
+(4, 'goto', {'loc': 'table'}, 'OK', '')
+(5, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(6, 'goto', {'loc': 'table'}, 'OK', '')
+(7, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(8, 'goto', {'loc': 'table'}, 'OK', '')
+(9, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(10, 'goto', {'loc': 'table'}, 'OK', '')
+(11, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(12, 'goto', {'loc': 'table'}, 'OK', '')
+(13, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(14, 'goto', {'loc': 'table'}, 'OK', '')
+(15, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(16, 'goto', {'loc': 'table'}, 'OK', '')
+(17, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'cutoff')
+TRACE qwen2.5:7b|B3|t01|ST-F|0 cap_exceeded attempts 9 human 0
+(1, 'goto', {'loc': 'counter'}, 'OK', '')
+(2, 'pick', {'obj': 'apple', 'grasp': 'top'}, 'STATE_MISMATCH', 'replan')
+(3, 'goto', {'loc': 'sink'}, 'OK', '')
+(4, 'pick', {'obj': 'apple', 'grasp': 'top'}, 'OK', '')
+(5, 'goto', {'loc': 'table'}, 'OK', '')
+(6, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(7, 'goto', {'loc': 'table'}, 'OK', '')
+(8, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(9, 'goto', {'loc': 'table'}, 'OK', '')
+(10, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(11, 'goto', {'loc': 'table'}, 'OK', '')
+(12, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(13, 'goto', {'loc': 'table'}, 'OK', '')
+(14, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(15, 'goto', {'loc': 'table'}, 'OK', '')
+(16, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(17, 'goto', {'loc': 'table'}, 'OK', '')
+(18, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'cutoff')
+TRACE qwen2.5:7b|B5|t01|PRE-F|0 abstain attempts 5 human 0
+(1, 'goto', {'loc': 'counter'}, 'OK', '')
+(2, 'pick', {'obj': 'apple', 'grasp': 'top'}, 'PRECOND_UNMET', 'replan')
+(3, 'goto', {'loc': 'sink'}, 'OK', '')
+(4, 'pick', {'obj': 'apple', 'grasp': 'top'}, 'STATE_MISMATCH', 'replan')
+(5, 'goto', {'loc': 'counter'}, 'OK', '')
+(6, 'pick', {'obj': 'apple', 'grasp': 'top'}, 'OK', '')
+(7, 'goto', {'loc': 'table'}, 'OK', '')
+(8, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'replan')
+(9, 'goto', {'loc': 'table'}, 'OK', '')
+(10, 'place', {'obj': 'apple', 'loc': None, 'orient': 'upright'}, 'PRECOND_UNMET', 'abstain')
+TRACE qwen2.5:7b|B4|t01|ST-F|0 success attempts 8 human 1
+(1, 'goto', {'loc': 'counter'}, 'OK', '')
+(2, 'pick', {'obj': 'apple', 'grasp': 'top'}, 'STATE_MISMATCH', 'modify')
+(3, 'pick', {'obj': 'apple', 'grasp': 'side'}, 'STATE_MISMATCH', 'modify')
+(4, 'pick', {'obj': 'apple', 'grasp': 'pinch'}, 'STATE_MISMATCH', 'modify')
+(5, 'pick', {'obj': 'apple', 'grasp': 'pinch'}, 'STATE_MISMATCH', 'modify')
+(6, 'pick', {'obj': 'apple', 'grasp': 'pinch'}, 'STATE_MISMATCH', 'modify')
+(7, 'pick', {'obj': 'apple', 'grasp': 'pinch'}, 'STATE_MISMATCH', 'modify')
+(8, 'pick', {'obj': 'apple', 'grasp': 'pinch'}, 'STATE_MISMATCH', 'escalate')
+(9, 'pick', {'obj': 'apple', 'grasp': 'pinch'}, 'OK', '')
+(10, 'goto', {'loc': 'table'}, 'OK', '')
+(11, 'place', {'obj': 'apple', 'loc': 'table', 'orient': 'upright'}, 'OK', '')
+DEFAULT_REPLAN_EMPTY None
+PNG integrity verified 12
+VIDEO reel.mp4 frames 3721 fps 30.0 size (640, 360)
+VIDEO t06_PAR-F_B0.mp4 frames 735 fps 30.0 size (640, 360)
+VIDEO t06_PAR-F_B5.mp4 frames 532 fps 30.0 size (640, 360)

@@ -1,0 +1,10 @@
+RESUME done_before set()
+RESUME resulting_lines ['{"episode_id":"broken"{"episode_id": "recovered"}']
+RESUME parses False; appended record merged with partial tail
+MASKED malformed_pick EXEC_TRANSIENT then_valid_pick STATE_MISMATCH fault_counter 2
+EMPTY_REPLAN_EPISODES []
+MULTIPLE_ANCHOR_SUCCESSES 0
+PROMPT_VERSIONS {'v1': 1320} PARSE_FAILURES 0 LLM_CALLS 4504
+HASHSEED 0 ['sink', 'sink', 'counter', 'shelf', 'sink', 'sink', 'table', 'sink', 'table', 'sink', 'shelf', 'table', 'sink', 'counter', 'table', 'sink', 'table', 'sink', 'sink', 'shelf']
+HASHSEED 1 ['sink', 'sink', 'counter', 'shelf', 'sink', 'sink', 'table', 'sink', 'table', 'sink', 'shelf', 'table', 'sink', 'counter', 'table', 'sink', 'table', 'sink', 'sink', 'shelf']
+HASHSEED 42 ['sink', 'sink', 'counter', 'shelf', 'sink', 'sink', 'table', 'sink', 'table', 'sink', 'shelf', 'table', 'sink', 'counter', 'table', 'sink', 'table', 'sink', 'sink', 'shelf']

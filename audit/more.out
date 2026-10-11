@@ -1,0 +1,18 @@
+REQUIRESDIST None
+INVALID_TOTAL B2 0 0 1113
+INVALID_TOTAL B3 110 610 1568
+INVALID_TOTAL B4 7 24 1017
+INVALID_TOTAL B5 36 86 572
+B4_MODIFY 857 noop 478 nonparam_modify 718 nonparam_decisions 790
+LEGAL_STF_SUFFIX t01 initial_failure STATE_MISMATCH suffix_codes ['OK', 'OK', 'OK', 'OK', 'OK'] goal True
+LEGAL_STF_SUFFIX t04 initial_failure STATE_MISMATCH suffix_codes ['OK', 'OK', 'OK', 'OK', 'OK', 'OK'] goal True
+LEGAL_STF_SUFFIX t08 initial_failure STATE_MISMATCH suffix_codes ['OK', 'OK', 'OK', 'OK', 'OK', 'OK', 'OK', 'OK', 'OK'] goal True
+CLAIRVOYANT_FIRST_PICK ST-F OK hardcoded_oracle 2
+CLAIRVOYANT_FIRST_PICK PRE-F OK hardcoded_oracle 2
+CLAIRVOYANT_FIRST_PICK PAR-F OK hardcoded_oracle 2
+CACHE files 2441
+MISSING_LOC permitted required ['skill'] Call.from_flat place(obj=apple, loc=None, orient=upright) result ok=False code='PRECOND_UNMET' detail='invalid call: loc=None' param_field=None
+AUTO_CUSTOM_BOOT (0.19545454545454546, 0.1318181818181818, 0.2636363636363636, 220)
+SHA256 results/raw/qwen.jsonl a0a60376c6b3f1cb707387fd72f97836b7b65622c7292ea2d41670973d6e7fe7
+SHA256 results/raw/qwen_pre_fix.jsonl 4e78851fe8a8b70c1611e21dd276f1b8e3f448433cf78cf7e48fd4de5f350e56
+SHA256 results/tables/hypotheses.csv 4e7ca3ee520764f61b6f4e48b894d14778c6ad2f5c6000c01ff49bfe58d4bcf3

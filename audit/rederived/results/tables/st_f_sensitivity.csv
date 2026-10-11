@@ -1,0 +1,13 @@
+subset,method,n_tasks,correct_count,correct_rate,mean_regret
+pre_fix,B0,20,0,0.0,6.0
+pre_fix,B1,20,0,0.0,1.0
+pre_fix,B2,20,0,0.0,6.0
+pre_fix,B3,20,0,0.0,6.45
+pre_fix,B4,20,7,0.35,6.1
+pre_fix,B5,20,0,0.0,2.75
+post_fix,B0,20,0,0.0,6.0
+post_fix,B1,20,0,0.0,1.0
+post_fix,B2,20,0,0.0,6.0
+post_fix,B3,20,0,0.0,6.7
+post_fix,B4,20,7,0.35,6.1
+post_fix,B5,20,0,0.0,2.8

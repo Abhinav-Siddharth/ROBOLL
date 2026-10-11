@@ -1,0 +1,4 @@
+CACHE_AUDIT model_requests 4504 unique_cache_keys 2336 missing 0 mismatches 0
+CACHE missing_examples []
+CACHE mismatch_examples []
+RAW_REPLAN_PLACE_LOC_OMISSIONS {'B3': 1598, 'B5': 233, 'B2': 171, 'B4': 45}

@@ -1,0 +1,194 @@
+INTEGRITY rows 1320 unique 1320 duplicates 0 missing 0 unexpected 0
+PER CELL COUNTS: cell B0 B1 B2 B3 B4 B5
+NONE 20 20 20 20 20 20
+TR-T1 20 20 20 20 20 20
+TR-T2 20 20 20 20 20 20
+TR-T3 20 20 20 20 20 20
+TR-P 20 20 20 20 20 20
+PAR-F 20 20 20 20 20 20
+PAR-P 20 20 20 20 20 20
+ST-F 20 20 20 20 20 20
+ST-P 20 20 20 20 20 20
+PRE-F 20 20 20 20 20 20
+PRE-P 20 20 20 20 20 20
+SCHEMA required ['skill']
+INVALID: method cell episodes_with_invalid/episodes invalid_steps/all_failure_steps
+B2 NONE 0/20 0/0
+B2 TR-T1 0/20 0/20
+B2 TR-T2 0/20 0/40
+B2 TR-T3 0/20 0/60
+B2 TR-P 0/20 0/160
+B2 PAR-F 0/20 0/33
+B2 PAR-P 0/20 0/160
+B2 ST-F 0/20 0/160
+B2 ST-P 0/20 0/160
+B2 PRE-F 0/20 0/160
+B2 PRE-P 0/20 0/160
+B3 NONE 0/20 0/0
+B3 TR-T1 20/20 126/156
+B3 TR-T2 20/20 105/156
+B3 TR-T3 19/20 86/160
+B3 TR-P 1/20 1/160
+B3 PAR-F 14/20 82/156
+B3 PAR-P 0/20 0/160
+B3 ST-F 18/20 115/156
+B3 ST-P 1/20 1/148
+B3 PRE-F 17/20 94/156
+B3 PRE-P 0/20 0/160
+B4 NONE 0/20 0/0
+B4 TR-T1 0/20 0/20
+B4 TR-T2 0/20 0/40
+B4 TR-T3 0/20 0/60
+B4 TR-P 0/20 0/144
+B4 PAR-F 0/20 0/33
+B4 PAR-P 0/20 0/131
+B4 ST-F 6/20 22/149
+B4 ST-P 0/20 0/144
+B4 PRE-F 1/20 2/148
+B4 PRE-P 0/20 0/148
+B5 NONE 0/20 0/0
+B5 TR-T1 0/20 0/20
+B5 TR-T2 0/20 0/40
+B5 TR-T3 0/20 0/60
+B5 TR-P 0/20 0/80
+B5 PAR-F 0/20 0/33
+B5 PAR-P 0/20 0/60
+B5 ST-F 18/20 52/78
+B5 ST-P 1/20 1/64
+B5 PRE-F 17/20 33/77
+B5 PRE-P 0/20 0/60
+SUCCESS SPLIT: cell B0..B5 autonomous/human-assisted (each /20 episodes)
+NONE 20/0 20/0 20/0 20/0 20/0 20/0
+TR-T1 20/0 20/0 20/0 0/0 20/0 20/0
+TR-T2 20/0 20/0 20/0 0/0 20/0 20/0
+TR-T3 20/0 0/0 20/0 0/0 20/0 20/0
+TR-P 0/0 0/0 0/0 0/0 0/0 0/0
+PAR-F 0/0 0/0 20/0 0/0 20/0 20/0
+PAR-P 0/0 0/0 0/0 0/0 0/0 0/0
+ST-F 0/0 0/0 0/0 0/0 0/7 0/0
+ST-P 0/0 0/0 0/0 0/0 0/0 0/0
+PRE-F 0/0 0/0 0/0 0/0 0/7 0/0
+PRE-P 0/0 0/0 0/0 0/0 0/0 0/0
+METHOD TOTALS: method correct autonomous-success assisted-success correct-with-no-query permanent-correct
+B0 80 80 0 80 0
+B1 140 60 0 140 80
+B2 100 100 0 100 0
+B3 20 20 0 20 0
+B4 150 100 14 100 36
+B5 179 100 0 159 79
+REPLAY rows 1320 code_mismatches 0 detail_mismatches 0 metric_mismatches 0 success_iff_goal_mismatches 0
+REPLAY_ERRORS []
+LABEL_MISMATCHES []
+METRIC_MISMATCHES []
+ANCHOR COUNT mismatch episodes 215 excess 904 by_method {'B3': 133, 'B5': 56, 'B2': 17, 'B4': 9}
+ANCHOR examples [('qwen2.5:7b|B3|t01|TR-T1|0', 9, 2, 7), ('qwen2.5:7b|B3|t01|TR-T2|0', 9, 3, 6), ('qwen2.5:7b|B3|t01|TR-T3|0', 9, 4, 5), ('qwen2.5:7b|B3|t01|PAR-F|0', 9, 2, 7), ('qwen2.5:7b|B3|t01|ST-F|0', 9, 2, 7)]
+INVALID DETAILS Counter({'invalid call: loc=None': 720})
+STF target held before first invalid: {'B3': 18, 'B5': 18, 'B4': 6}
+MUTATION wrong code DETECTED
+MUTATION wrong outcome/correct/detail NOT DETECTED final_goal True
+ARCHIVE rows 1320 full_row_changes 29 changed_cells Counter({'ST-F': 29}) changed_tasks ['t01', 't02', 't04', 't07', 't09', 't10', 't13', 't16', 't17', 't18', 't19', 't20']
+ARCHIVE equal to commit 06f8af8 raw True
+FEASIBILITY initial_goal_true [] clean_plan_bad [] solvable_witness_bad [('t04', 'ST-F'), ('t10', 'ST-F'), ('t18', 'ST-F')] solvable_cases 140
+INITIAL PAIR MISMATCHES []
+TIME: method seconds total episodes avg
+B0 0.0 220 0.0
+B1 0.0 220 0.0
+B2 1321.35 220 6.006
+B3 2609.13 220 11.86
+B4 1053.42 220 4.788
+B5 458.53 220 2.084
+RERUN ['ST-F', 'PRE-F'] episodes 160 logged seconds 1331.39 LLM_calls 1148
+RERUN ['NONE', 'TR-T1', 'TR-T2', 'TR-T3', 'TR-P', 'PAR-F', 'PAR-P', 'ST-F', 'ST-P', 'PRE-F', 'PRE-P'] episodes 880 logged seconds 5442.43 LLM_calls 4504
+INVENTORY
+EXISTS README.md
+MISSING RUNBOOK_7DAY.md
+MISSING RUNBOOK_DAY8.md
+EXISTS analysis/make_figures.py
+EXISTS analysis/summarize.py
+EXISTS configs/main.yaml
+EXISTS configs/pilot.yaml
+EXISTS configs/policy.yaml
+MISSING configs/timing.yaml
+MISSING docs/RUNBOOK_7DAY.md
+MISSING docs/RUNBOOK_DAY8.md
+EXISTS figures/fig1_correct_heatmap.png
+EXISTS figures/fig2_regret_by_regime.png
+EXISTS figures/fig3_decisions.png
+EXISTS figures/fig4_tokens_vs_correct.png
+EXISTS figures/replay_150.png
+EXISTS figures/replay_400.png
+EXISTS figures/replay_700.png
+EXISTS figures/replay_contrast.png
+EXISTS figures/t06_PAR-F_B0_fail.png
+EXISTS figures/t06_PAR-F_B0_final.png
+EXISTS figures/t06_PAR-F_B5_fail.png
+EXISTS figures/t06_PAR-F_B5_final.png
+EXISTS paper/claim.md
+MISSING paper/competitors.md
+MISSING paper/course.md
+MISSING paper/notes/CAPE.md
+MISSING paper/notes/FRAMES.md
+MISSING paper/notes/Graph_Harness.md
+MISSING paper/notes/Reflective_Test_Time_Planning.md
+MISSING paper/notes/Retry_Switch_Abstain.md
+MISSING paper/notes/Self_Healing_Orchestrators.md
+MISSING paper/notes/TOOL_MAZE.md
+MISSING paper/notes/YALE.md
+MISSING paper/notes/_template.md
+MISSING paper/notes/faults.md
+EXISTS paper/notes/hypothesis.md
+EXISTS paper/notes/method.md
+EXISTS paper/notes/results.md
+EXISTS paper/notes/setup.md
+EXISTS paper/outline.md
+EXISTS paper/prereg.md
+EXISTS paper/refs.bib
+EXISTS pyproject.toml
+EXISTS requirements-viz.txt
+EXISTS requirements.txt
+EXISTS results/demo/reel.mp4
+EXISTS results/demo/t06_PAR-F_B0.mp4
+EXISTS results/demo/t06_PAR-F_B5.mp4
+EXISTS results/meta.txt
+EXISTS results/raw/pilot.jsonl
+EXISTS results/raw/qwen.jsonl
+EXISTS results/raw/qwen_pre_fix.jsonl
+EXISTS results/tables/by_group.csv
+EXISTS results/tables/correct_by_cell.csv
+EXISTS results/tables/hypotheses.csv
+EXISTS results/tables/overall.csv
+EXISTS results/tables/st_f_sensitivity.csv
+EXISTS scripts/bench.py
+EXISTS scripts/check_llm.py
+EXISTS scripts/estimate_hours.py
+EXISTS scripts/make_reel.py
+EXISTS scripts/replay.py
+EXISTS scripts/rerun_st_f.py
+EXISTS scripts/run_main.sh
+EXISTS src/pfr/__init__.py
+EXISTS src/pfr/core.py
+EXISTS src/pfr/env.py
+EXISTS src/pfr/faults.py
+EXISTS src/pfr/llm.py
+EXISTS src/pfr/logging_utils.py
+EXISTS src/pfr/methods/__init__.py
+EXISTS src/pfr/methods/b0_retry.py
+EXISTS src/pfr/methods/b1_maxretry.py
+EXISTS src/pfr/methods/b2_nohistory.py
+EXISTS src/pfr/methods/b3_replan.py
+EXISTS src/pfr/methods/b4_llm_history.py
+EXISTS src/pfr/methods/b5_policy.py
+EXISTS src/pfr/prompts.py
+EXISTS src/pfr/runner.py
+EXISTS src/pfr/stub_llm.py
+EXISTS src/pfr/tasks.py
+EXISTS src/pfr/viz/__init__.py
+EXISTS src/pfr/viz/play.py
+EXISTS src/pfr/viz/scene.py
+EXISTS src/pfr/viz/state.py
+EXISTS tests/test_env.py
+EXISTS tests/test_faults.py
+EXISTS tests/test_methods.py
+EXISTS tests/test_runner.py
+EXISTS tests/test_viz_scene.py
+EXISTS tests/test_viz_state.py

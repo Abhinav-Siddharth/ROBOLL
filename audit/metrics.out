@@ -1,0 +1,14 @@
+HYPOTHETICAL literal anchor metric, holding oracle baseline fixed; no source/log edits
+          regret  anchor_regret  attempts_on_faulted_step  anchor_attempts
+method                                                                    
+B0      4.181818       4.181818                  6.000000         6.000000
+B1      1.000000       1.000000                  2.727273         2.727273
+B2      3.695455       3.468182                  5.513636         5.286364
+B3      5.890909       2.636364                  7.709091         4.450000
+B4      3.354545       3.227273                  5.172727         5.045455
+B5      1.395455       0.900000                  3.213636         2.718182
+H2 B5 vs B0 P anchor regret (-4.9875, -5.1875, -4.8, 80)
+H2 B5 vs B4 P anchor regret (-4.025, -4.375, -3.675, 80)
+H2 B5 vs B3 P anchor regret (-3.7875, -4.15, -3.3875, 80)
+PILOT DESIGN rows 330 models ['qwen2.5:7b'] methods ['B0', 'B1', 'B2', 'B3', 'B4', 'B5'] tasks ['t01', 't02', 't03', 't04', 't05'] seeds [0]
+PILOT ID duplicates 0
