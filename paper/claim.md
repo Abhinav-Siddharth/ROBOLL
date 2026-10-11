@@ -1,22 +1,29 @@
-Title (working): Managing Persistent Execution Failures in LLM-Based Robotic Agents: A Controlled Study of History-Aware Recovery Decisions
+# Knowing when to stop under persistent robot skill failures
 
-RQ: Under persistent execution failures, does accumulated failure history improve the choice among retry / modify / replan / escalate / abstain?
+RQ: In a symbolic robot benchmark, how do recovery policies balance autonomous completion,
+correct termination, total failure cost and literal anchor regret?
 
-Gap: Work on LLM agents already studies retry / switch / abstain decisions and budgeted recovery policies
-(Retry, Switch, or Abstain? 2608.11977; Self-Healing Agentic Orchestrators 2606.01416; Graph Harness 2604.11378),
-and embodied systems add monitoring, replanning and memory (CAPE, FRAMES 2609.22538, Reflective Test-Time Planning 2602.21198).
-What is missing is a controlled study in EMBODIED skill execution where persistent and fixable faults produce
-identical failure messages, so only the failure history can tell them apart.
+The benchmark compares B0-B5 across 20 tasks and 11 fault cells. Fixable and permanent
+variants share initial failure messages. ST regimes are observable in the true state
+supplied to replanning, so history is not the only signal.
 
-Contributions:
- (1) a fault benchmark of 11 cells (transient T1-T3, fixable, permanent) with identical surface symptoms for F and P faults;
- (2) a training-free explicit history-aware recovery policy (B5) and an LLM-with-history counterpart (B4) given the same information;
- (3) a controlled evaluation with regret against an oracle attempt count, reporting both all-cell correctness (+13.2% for B5) and purely autonomous correctness (+19.5% for B5, as B4's F-cell advantage is human-assisted);
- (4) an empirical characterization of structural argument omission (e.g. invalid calls in replanning) in open-weight 7B planners under JSON schemas.
+B4 vs B2 compares a context bundle: history, failure counts, remaining budget and
+untried parameter values. It does not isolate history. The matched-context B2 ablation
+will retain budget/untried hints and remove prior failure history.
 
-Assumptions (state them in the paper): an oracle monitor supplies a structured failure code; the initial plan is an oracle plan;
-the skill menu is fixed; everything runs in a simulator; one 7B model, one seed.
+Contributions: a controlled fault taxonomy; comparisons of retry, modify, replan,
+escalate and abstain; explicit autonomous and human-assisted outcome definitions;
+and an analysis of omitted required arguments in small-model replanning.
 
-Not solved: perception-based diagnosis, learned recovery, sim-to-real, safety certification.
+V1 is preserved alongside the planned format-validity replication. Its headline is
+correct termination and knowing when to stop, qualified by baseline schema defects.
+No claim is made that all ST-F/PRE-F zeros measure recovery ability or that schema
+repair guarantees completion. See paper/notes/results.md for current numbers and formulas.
 
-Claims we do NOT make: that we are first to study retry/replan/abstain for LLM agents; that B5 beats a state-of-the-art system.
+Oracle regret uses a forced initial attempt convention. We assume oracle initial plans,
+structured failure codes, a fixed skill menu, a symbolic simulator, one model and one seed.
+We do not claim priority over retry/switch/abstain research, an isolated history effect,
+physical executability, sim-to-real performance or superiority to a state-of-the-art system.
+
+Related-work metadata is verified in paper/refs.bib and audit/phase2/bibliography_sources.json.
+A full comparative literature review remains unfinished.

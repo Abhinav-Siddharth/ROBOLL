@@ -1,0 +1,72 @@
+[
+  {
+    "key": "cape",
+    "arxiv": "2211.09935",
+    "title": "CAPE: Corrective Actions from Precondition Errors using Large Language Models",
+    "authors": "Shreyas Sundara Raman and Vanya Cohen and Ifrah Idrees and Eric Rosen and Ray Mooney and Stefanie Tellex and David Paulius",
+    "year": "2022",
+    "source": "https://arxiv.org/abs/2211.09935",
+    "status": "VERIFIED metadata; full-text comparative review UNVERIFIED",
+    "checked_date": "2026-10-11"
+  },
+  {
+    "key": "retry_switch_abstain",
+    "arxiv": "2608.11977",
+    "title": "Retry, Switch, or Abstain? Learning Strategy-Aware Tool-Use Policies via Controlled Error Injection",
+    "authors": "Chaoran Chen and Vy Nguyen and Ziji Zhang and Abhinav Gullapalli and Ziyi Wang and Yuxuan Lu and Dakuo Wang and Jing Huang and Zhou Yu and Jin Lai",
+    "year": "2026",
+    "source": "https://arxiv.org/abs/2608.11977",
+    "status": "VERIFIED metadata; full-text comparative review UNVERIFIED",
+    "checked_date": "2026-10-11"
+  },
+  {
+    "key": "self_healing",
+    "arxiv": "2606.01416",
+    "title": "Self-Healing Agentic Orchestrators for Reliable Tool-Augmented Large Language Model Systems",
+    "authors": "Rahul Suresh Babu and Adarsh Agrawal",
+    "year": "2026",
+    "source": "https://arxiv.org/abs/2606.01416",
+    "status": "VERIFIED metadata; full-text comparative review UNVERIFIED",
+    "checked_date": "2026-10-11"
+  },
+  {
+    "key": "graph_harness",
+    "arxiv": "2604.11378",
+    "title": "From Agent Loops to Structured Graphs: A Scheduler-Theoretic Framework for LLM Agent Execution",
+    "authors": "Hu Wei",
+    "year": "2026",
+    "source": "https://arxiv.org/abs/2604.11378",
+    "status": "VERIFIED metadata; full-text comparative review UNVERIFIED",
+    "checked_date": "2026-10-11"
+  },
+  {
+    "key": "toolmaze",
+    "arxiv": "2606.05806",
+    "title": "When Tools Fail: Benchmarking Dynamic Replanning and Anomaly Recovery in LLM Agents",
+    "authors": "Dongsheng Zhu and Xuchen Ma and Yucheng Shen and Xiang Li and Yukun Zhao and Shuaiqiang Wang and Lingyong Yan and Dawei Yin",
+    "year": "2026",
+    "source": "https://arxiv.org/abs/2606.05806",
+    "status": "VERIFIED metadata; full-text comparative review UNVERIFIED",
+    "checked_date": "2026-10-11"
+  },
+  {
+    "key": "frames",
+    "arxiv": "2609.22538",
+    "title": "FRAMES: Failure Recovery And Monitoring of Embodied Skills for Humanoid Loco-Manipulation",
+    "authors": "Ajay Vikram Periasami and Xinyuan Luo and Haoyu Li and Xianyi Cheng",
+    "year": "2026",
+    "source": "https://arxiv.org/abs/2609.22538",
+    "status": "VERIFIED metadata; full-text comparative review UNVERIFIED",
+    "checked_date": "2026-10-11"
+  },
+  {
+    "key": "reflective_ttp",
+    "arxiv": "2602.21198",
+    "title": "Learning from Trials and Errors: Reflective Test-Time Planning for Embodied LLMs",
+    "authors": "Yining Hong and Huang Huang and Manling Li and Li Fei-Fei and Leonidas Guibas and Jiajun Wu and Yejin Choi",
+    "year": "2026",
+    "source": "https://arxiv.org/abs/2602.21198",
+    "status": "VERIFIED metadata; full-text comparative review UNVERIFIED",
+    "checked_date": "2026-10-11"
+  }
+]

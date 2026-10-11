@@ -31,3 +31,7 @@ Before: 2 failed. After: 399 passed. Runtime dependencies and test/viewer extras
 
 Before: 1 failed. After: 400 passed. scripts/record_metadata.py read /api/tags, /api/show and /api/version without generation. Model digest 845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e; server/client 0.40.0. Existing metadata retained; old cache keys remain unchanged. Namespace results/cache_v2 is reserved for new runs. Historical v1 server identity remains UNVERIFIED.
 
+## Gate 1h VERIFIED
+
+Before: 4 failed. After: 404 passed. CSV-generated notes use current v1 values, explicit correct-termination formulas and context-bundle/observable-ST limitations. Oracle convention and genuinely unknown registration metadata are disclosed. Seven bibliography entries were checked against official arXiv abstract metadata, linked in bibliography_sources.json. Full comparative literature review and an assembled manuscript remain outside this gate and UNVERIFIED.
+

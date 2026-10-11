@@ -1,11 +1,11 @@
 # Pre-registration (write BEFORE the main run; commit)
 
-**Date/time:** ____  
-**Git commit:** ____ (`git rev-parse --short HEAD`)  
+**Date/time:** Unknown original wall-clock registration time. The prereg-v1 commit timestamp is 2026-10-07T20:28:29+05:30; this is not a recovered original registration timestamp.  
+**Git commit:** `f2a2bb0c8591cd4c4593e714b978f3b08b0392ef` (`prereg-v1`, verified from git history)  
 **Prompt version:** `prompts-frozen-v1`  
 **Model:** qwen2.5:7b  
 **Seeds:** [0]  
-**Estimated hours (from pilot):** ____  
+**Estimated hours (from pilot):** Unknown original estimate; not reconstructed or backdated.  
 
 ## Design
 20 tasks × 11 fault cells × 1 seed × 6 methods (B0–B5).  
@@ -59,3 +59,12 @@ Both are valid findings. **Do not** change faults, prompts, thresholds, or metri
 
 ## Post-run deviations and amendments
 - **2026-10-10 (commit `eead494`):** Fixed an environment generator bug where candidate location sampling for `ST-F` did not exclude the target object's goal location, causing 6/20 tasks to start with their goal already satisfied at t=0. The candidate list in `src/pfr/faults.py` was updated to exclude `task['goal']['at'].get(anchor['obj'])`. Exactly 72 affected episodes across 12 tasks were re-run; pre-fix results were archived at `results/raw/qwen_pre_fix.jsonl`. Method rankings and hypothesis CI conclusions remained completely unchanged (`results/tables/st_f_sensitivity.csv`).
+
+## Retrospective documentation correction, 2026-10-11
+
+Metadata above is recovered from git history where possible and otherwise marked Unknown.
+The original blank registration fields remain visible at prereg-v1. No claim is made
+that these corrections recover an external preregistration or actual run timestamp.
+The oracle is a forced initial attempt recovery oracle; F=2 does not describe an
+unrestricted clairvoyant initial plan. Archived legacy regret and literal anchor regret
+are now distinguished. The B4/B2 side comparison concerns a context bundle, not history alone.

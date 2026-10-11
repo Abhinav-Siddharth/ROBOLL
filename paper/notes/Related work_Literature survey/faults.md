@@ -12,7 +12,9 @@ PRE-P  PRECOND_UNMET   precondition: prior visit to sink required
 
 ## Oracle attempts
 
-The oracle uses the minimum number of attempts needed for the known fault condition:
+The recovery oracle uses the forced initial attempt convention: execute the original
+anchor once before reacting with knowledge of the fault. This is not an unrestricted
+clairvoyant minimum:
 
 - NONE = 1
 - TR-T1 = 2
@@ -27,4 +29,5 @@ Regret measures extra attempts beyond the oracle:
 
 regret = max(0, attempts_on_faulted_step - oracle_attempts)
 
-Thus, an agent gets zero regret when it uses the oracle-minimal number of attempts, and positive regret when it wastes additional attempts.
+Literal anchor regret and total failure cost are separately derived from traces. The
+archived runner field uses episode-wide failures and is labeled legacy regret.

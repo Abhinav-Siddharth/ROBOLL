@@ -1,0 +1,51 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_paper_consistency.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate1h-before
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+__________________ test_v1_paper_table_matches_saved_metrics ___________________
+
+    def test_v1_paper_table_matches_saved_metrics():
+        text = (ROOT/'paper/notes/results.md').read_text()
+        for row in csv.DictReader((ROOT/'results/tables/overall.csv').open()):
+            cells = [row['method']] + [f"{float(row[k]):.3f}" for k in
+                     ['correct', 'regret', 'loop', 'human_queries', 'tokens', 'latency_s']]
+>           assert '| '+' | '.join(cells)+' |' in text
+E           AssertionError: assert (('| ' + 'B0 | 0.364 | 4.182 | 0.727 | 0.000 | 0.000 | 0.000') + ' |') in '# Results\n\n## Experimental Overview\n\nThe final evaluation contains 1,320 episodes covering 20 tasks, 11 fault cel...itioned on the observed failure and the accumulated evidence about whether the current recovery path remains viable.**'
+E            +  where 'B0 | 0.364 | 4.182 | 0.727 | 0.000 | 0.000 | 0.000' = <built-in method join of str object at 0x7b91d3b14930>(['B0', '0.364', '4.182', '0.727', '0.000', '0.000', ...])
+E            +    where <built-in method join of str object at 0x7b91d3b14930> = ' | '.join
+
+tests/test_paper_consistency.py:12: AssertionError
+________ test_claim_does_not_attribute_context_bundle_to_history_alone _________
+
+    def test_claim_does_not_attribute_context_bundle_to_history_alone():
+        text = (ROOT/'paper/claim.md').read_text()
+>       assert 'context bundle' in text
+E       AssertionError: assert 'context bundle' in 'Title (working): Managing Persistent Execution Failures in LLM-Based Robotic Agents: A Controlled Study of History-Aw...o NOT make: that we are first to study retry/replan/abstain for LLM agents; that B5 beats a state-of-the-art system.\n'
+
+tests/test_paper_consistency.py:19: AssertionError
+_____________ test_oracle_and_registration_disclosure_are_explicit _____________
+
+    def test_oracle_and_registration_disclosure_are_explicit():
+>       assert 'forced initial attempt' in (ROOT/'paper/notes/method.md').read_text()
+E       AssertionError: assert 'forced initial attempt' in '# Method\n\n## 1. Experimental Environment\n\nWe evaluate LLM-based failure recovery in a controlled, state-based rob...orrect when a solvable task reaches its goal, or when an unsolvable permanent case ends in abstention or escalation.\n'
+E        +  where '# Method\n\n## 1. Experimental Environment\n\nWe evaluate LLM-based failure recovery in a controlled, state-based rob...orrect when a solvable task reaches its goal, or when an unsolvable permanent case ends in abstention or escalation.\n' = read_text()
+E        +    where read_text = (PosixPath('/home/abhi_pop/pfr') / 'paper/notes/method.md').read_text
+
+tests/test_paper_consistency.py:26: AssertionError
+_________________ test_bibliography_contains_verified_metadata _________________
+
+    def test_bibliography_contains_verified_metadata():
+        text = (ROOT/'paper/refs.bib').read_text()
+>       assert text.count('@misc{') >= 7
+E       AssertionError: assert 0 >= 7
+E        +  where 0 = <built-in method count of str object at 0x7b91d3b73ef0>('@misc{')
+E        +    where <built-in method count of str object at 0x7b91d3b73ef0> = '%Papers refered.\n'.count
+
+tests/test_paper_consistency.py:35: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_paper_consistency.py::test_v1_paper_table_matches_saved_metrics
+FAILED tests/test_paper_consistency.py::test_claim_does_not_attribute_context_bundle_to_history_alone
+FAILED tests/test_paper_consistency.py::test_oracle_and_registration_disclosure_are_explicit
+FAILED tests/test_paper_consistency.py::test_bibliography_contains_verified_metadata
+4 failed in 0.02s
+
+exit_code=1

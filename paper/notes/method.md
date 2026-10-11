@@ -41,10 +41,22 @@ This provides an end-to-end evaluation in which recovery decisions are not judge
 
 ## 5. Evaluation Metrics
 
-We record task correctness, number of attempts on the faulted step, regret, loop occurrence, human escalation, token usage, and latency.
+The forced initial attempt convention fixes the original plan until its first faulted
+pick is attempted. A recovery oracle then knows the fault. Its anchor baseline is
+NONE 1, TR-Tn n+1, fixable 2, permanent 1. An unrestricted clairvoyant planner could
+avoid the first failure on fixable cells; that is not the baseline used here.
 
-The faulted-step attempt count is the number of failed executions plus one when the anchor eventually succeeds. Oracle attempts represent the minimum number of attempts required when the fault condition is known in advance. Regret is defined as:
+Derived anchor_attempts counts all calls matching the original first pick's object.
+anchor_regret = max(0, anchor_attempts - oracle_attempts). Total failure cost counts
+all non-OK execution steps. The archived runner's regret counts all failures plus an
+indicator of anchor success, then subtracts the oracle. It is retained as legacy
+regret for the original hypothesis analysis; it is not literal anchor regret.
 
-`regret = max(0, attempts_on_faulted_step - oracle_attempts)`
+raw_correct counts success on solvable cells and abstain/escalate on permanent cells.
+no_human_correct also requires zero human queries. autonomous_solvable_or_permanent_correct
+requires zero human queries only on solvable cells and retains permanent human escalation.
+Autonomous success and human-assisted success are also reported separately.
 
-An episode is considered correct when a solvable task reaches its goal, or when an unsolvable permanent case ends in abstention or escalation.
+B4 adds a context bundle relative to B2: history, counts, remaining budget and untried
+values. This comparison alone does not isolate history. True observations in replanning
+distinguish ST-F from ST-P; identical initial messages do not make the states identical.
