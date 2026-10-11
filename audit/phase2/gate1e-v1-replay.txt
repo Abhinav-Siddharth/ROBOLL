@@ -1,0 +1,4 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -c import json; from pfr.viz.state import reconstruct; rows=[json.loads(l) for l in open('results/raw/qwen.jsonl')]; [reconstruct(r) for r in rows]; print(f'{len(rows)} rows replayed; 0 mismatches')
+1320 rows replayed; 0 mismatches
+
+exit_code=0

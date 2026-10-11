@@ -19,3 +19,7 @@ Before: 2 failed, 4 passed. After: 390 passed. Task-cluster bootstrap pairs firs
 
 Before: 2 failed. After: 392 passed. Appending quarantines an interrupted final record, or inserts a newline after a complete JSON record lacking one. No archived log was repaired or overwritten. See gate1d transcripts.
 
+## Gate 1e VERIFIED
+
+Before: 5 failed mutation tests. After: 397 passed. Codes, details, attempt order, final goal/outcome and correctness are enforced. All 1320 v1 rows replay with 0 mismatches. No inference.
+

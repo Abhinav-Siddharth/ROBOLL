@@ -1,0 +1,98 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_replay_guards.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate1e-before
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+________________ test_replay_rejects_metadata_mutations[detail] ________________
+
+mutation = 'detail'
+
+    @pytest.mark.parametrize('mutation', ['detail', 'attempt', 'outcome', 'correct'])
+    def test_replay_rejects_metadata_mutations(mutation):
+        row = run_episode(TASKS[0], 'NONE', 0, make_method('B0'), LLMClient('stub', 0))
+        if mutation == 'detail':
+            row['steps'][0]['detail'] = 'fabricated'
+        elif mutation == 'attempt':
+            row['steps'][0]['attempt'] = 4
+        elif mutation == 'outcome':
+            row['outcome'] = 'incomplete'
+        else:
+            row['correct'] = False
+>       with pytest.raises(ReplayMismatch):
+E       Failed: DID NOT RAISE ReplayMismatch
+
+tests/test_replay_guards.py:21: Failed
+_______________ test_replay_rejects_metadata_mutations[attempt] ________________
+
+mutation = 'attempt'
+
+    @pytest.mark.parametrize('mutation', ['detail', 'attempt', 'outcome', 'correct'])
+    def test_replay_rejects_metadata_mutations(mutation):
+        row = run_episode(TASKS[0], 'NONE', 0, make_method('B0'), LLMClient('stub', 0))
+        if mutation == 'detail':
+            row['steps'][0]['detail'] = 'fabricated'
+        elif mutation == 'attempt':
+            row['steps'][0]['attempt'] = 4
+        elif mutation == 'outcome':
+            row['outcome'] = 'incomplete'
+        else:
+            row['correct'] = False
+>       with pytest.raises(ReplayMismatch):
+E       Failed: DID NOT RAISE ReplayMismatch
+
+tests/test_replay_guards.py:21: Failed
+_______________ test_replay_rejects_metadata_mutations[outcome] ________________
+
+mutation = 'outcome'
+
+    @pytest.mark.parametrize('mutation', ['detail', 'attempt', 'outcome', 'correct'])
+    def test_replay_rejects_metadata_mutations(mutation):
+        row = run_episode(TASKS[0], 'NONE', 0, make_method('B0'), LLMClient('stub', 0))
+        if mutation == 'detail':
+            row['steps'][0]['detail'] = 'fabricated'
+        elif mutation == 'attempt':
+            row['steps'][0]['attempt'] = 4
+        elif mutation == 'outcome':
+            row['outcome'] = 'incomplete'
+        else:
+            row['correct'] = False
+>       with pytest.raises(ReplayMismatch):
+E       Failed: DID NOT RAISE ReplayMismatch
+
+tests/test_replay_guards.py:21: Failed
+_______________ test_replay_rejects_metadata_mutations[correct] ________________
+
+mutation = 'correct'
+
+    @pytest.mark.parametrize('mutation', ['detail', 'attempt', 'outcome', 'correct'])
+    def test_replay_rejects_metadata_mutations(mutation):
+        row = run_episode(TASKS[0], 'NONE', 0, make_method('B0'), LLMClient('stub', 0))
+        if mutation == 'detail':
+            row['steps'][0]['detail'] = 'fabricated'
+        elif mutation == 'attempt':
+            row['steps'][0]['attempt'] = 4
+        elif mutation == 'outcome':
+            row['outcome'] = 'incomplete'
+        else:
+            row['correct'] = False
+>       with pytest.raises(ReplayMismatch):
+E       Failed: DID NOT RAISE ReplayMismatch
+
+tests/test_replay_guards.py:21: Failed
+______________ test_replay_rejects_success_with_unsatisfied_goal _______________
+
+    def test_replay_rejects_success_with_unsatisfied_goal():
+        row = run_episode(TASKS[0], 'TR-P', 0, make_method('B0'), LLMClient('stub', 0))
+        row['outcome'] = 'success'
+        row['correct'] = True
+>       with pytest.raises(ReplayMismatch):
+E       Failed: DID NOT RAISE ReplayMismatch
+
+tests/test_replay_guards.py:29: Failed
+=========================== short test summary info ============================
+FAILED tests/test_replay_guards.py::test_replay_rejects_metadata_mutations[detail]
+FAILED tests/test_replay_guards.py::test_replay_rejects_metadata_mutations[attempt]
+FAILED tests/test_replay_guards.py::test_replay_rejects_metadata_mutations[outcome]
+FAILED tests/test_replay_guards.py::test_replay_rejects_metadata_mutations[correct]
+FAILED tests/test_replay_guards.py::test_replay_rejects_success_with_unsatisfied_goal
+5 failed in 0.09s
+
+exit_code=1

@@ -78,13 +78,19 @@ def reconstruct(row: dict, task: Optional[dict] = None) -> Episode:
     env = Env(task["init_state"])
     fenv = FaultyEnv(env, fault)
     ep = Episode(row=row, task=task, initial=env.observe(), hidden=hidden_truth(fault))
-    for s in row["steps"]:
+    for expected_attempt, s in enumerate(row["steps"], 1):
+        if s["attempt"] != expected_attempt:
+            raise ReplayMismatch(f"{row['episode_id']}: attempt order differs at {expected_attempt}")
         call = Call(s["skill"], dict(s["params"]))
         before = env.observe()
         res = fenv.execute(call)
         if res.code != s["code"]:
             raise ReplayMismatch(
                 f"{row['episode_id']} attempt {s['attempt']}: log says {s['code']}, replay says {res.code}")
+        if res.detail != s["detail"]:
+            raise ReplayMismatch(
+                f"{row['episode_id']} attempt {s['attempt']}: detail differs "
+                f"({s['detail']!r} vs {res.detail!r})")
         fixed = False
         if s["decision"] == "escalate" and fault.solvable:
             fault.clear(env)
@@ -92,4 +98,10 @@ def reconstruct(row: dict, task: Optional[dict] = None) -> Episode:
         ep.frames.append(Frame(s["attempt"], s["skill"], dict(s["params"]), s["code"], s["detail"],
                                s["decision"], before, env.observe(), fixed, s.get("note", "")))
     ep.final_goal_ok = env.goal_satisfied(task["goal"])
+    if (row["outcome"] == "success") != ep.final_goal_ok:
+        raise ReplayMismatch(f"{row['episode_id']}: outcome disagrees with final goal")
+    expected_correct = (row["outcome"] == "success" if fault.solvable
+                        else row["outcome"] in ("abstain", "escalate"))
+    if row["correct"] != expected_correct:
+        raise ReplayMismatch(f"{row['episode_id']}: correctness disagrees with outcome")
     return ep
