@@ -1,0 +1,8 @@
+code,count_code,n_fail,untried,mode,repeat_equal,status
+EXEC_TRANSIENT,1,1,[],retry,True,"exploratory, defined after seeing the data"
+EXEC_TRANSIENT,4,4,[],escalate,True,"exploratory, defined after seeing the data"
+PARAM_MISMATCH,1,1,['side'],modify,True,"exploratory, defined after seeing the data"
+PARAM_MISMATCH,1,1,[],abstain,True,"exploratory, defined after seeing the data"
+STATE_MISMATCH,1,1,[],replan,True,"exploratory, defined after seeing the data"
+STATE_MISMATCH,3,3,[],abstain,True,"exploratory, defined after seeing the data"
+STATE_MISMATCH,1,6,[],escalate,True,"exploratory, defined after seeing the data"
