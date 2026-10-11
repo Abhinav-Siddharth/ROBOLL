@@ -1,0 +1,14 @@
+{
+  "rows": 640,
+  "unique_ids": 640,
+  "invalid_calls": 0,
+  "parse_failures": 0,
+  "replay_mismatches": 0,
+  "batch": "gate4-main",
+  "newly_executed": 640,
+  "started_at_utc": "2026-10-11T09:28:14.234364+00:00",
+  "wall_time_s": 1988.035441395,
+  "code_commit": "1d0459c16ef8ebe431c12d8411d47ebd66906487",
+  "config": "configs/v2_remaining.yaml",
+  "config_sha256": "e85764249f9a07a80a61204bc87eb374586c1f6d2838b59deed942c97e57c217"
+}

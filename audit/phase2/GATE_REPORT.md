@@ -63,3 +63,7 @@ Command: PYTHONPATH="" PYTHONDONTWRITEBYTECODE=1 PFR_CACHE=results/cache_v2 PFR_
 
 160 exact unique IDs; zero invalid calls, zero exhausted parse/schema failures, zero replay mismatches. Actual wall time 736.65 seconds (12.28 minutes). See gate3-run.json, gate3-inference.txt, gate3-validation.txt and gate3-cell-results.csv. Gate continuation is structural and did not depend on success rates. The fixed B2C ablation and exact no-inference reuse tools were prepared while this batch ran; tests passed with 422 total.
 
+## Gate 4 main batch VERIFIED
+
+640 additional exact unique episodes passed the strongest current ID-coordinate, format, parse and replay checks. Zero invalid calls, exhausted parse/schema failures and replay mismatches. Wall time 1988.04 seconds (33.13 minutes); together with Gate 3, all 800 new main faulted episodes are complete. Experimental prompts/policies remained frozen. Metadata-repeat and ID-coordinate guards added with failing-before/passing-after tests; full suite 424 passed.
+

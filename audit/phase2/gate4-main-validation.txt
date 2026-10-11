@@ -1,0 +1,43 @@
+$ /home/abhi_pop/pfr/.venv/bin/python analysis/check_batch.py results/raw/qwen_v2.jsonl --config configs/v2_remaining.yaml --out audit/phase2/gate4-main-cell-results.csv
+{
+  "rows": 640,
+  "unique_ids": 640,
+  "invalid_calls": 0,
+  "parse_failures": 0,
+  "replay_mismatches": 0
+}
+method cell n invalid_episodes invalid_steps autonomous_success assisted_success
+B2 PAR-F 20 0 0 20 0
+B2 PAR-P 20 0 0 0 0
+B2 PRE-P 20 0 0 0 0
+B2 ST-P 20 0 0 0 0
+B2 TR-P 20 0 0 0 0
+B2 TR-T1 20 0 0 20 0
+B2 TR-T2 20 0 0 20 0
+B2 TR-T3 20 0 0 20 0
+B3 PAR-F 20 0 0 12 0
+B3 PAR-P 20 0 0 0 0
+B3 PRE-P 20 0 0 0 0
+B3 ST-P 20 0 0 0 0
+B3 TR-P 20 0 0 0 0
+B3 TR-T1 20 0 0 17 0
+B3 TR-T2 20 0 0 17 0
+B3 TR-T3 20 0 0 17 0
+B4 PAR-F 20 0 0 20 0
+B4 PAR-P 20 0 0 0 0
+B4 PRE-P 20 0 0 0 0
+B4 ST-P 20 0 0 0 0
+B4 TR-P 20 0 0 0 0
+B4 TR-T1 20 0 0 20 0
+B4 TR-T2 20 0 0 20 0
+B4 TR-T3 20 0 0 20 0
+B5 PAR-F 20 0 0 20 0
+B5 PAR-P 20 0 0 0 0
+B5 PRE-P 20 0 0 0 0
+B5 ST-P 20 0 0 0 0
+B5 TR-P 20 0 0 0 0
+B5 TR-T1 20 0 0 20 0
+B5 TR-T2 20 0 0 20 0
+B5 TR-T3 20 0 0 20 0
+
+exit_code=0

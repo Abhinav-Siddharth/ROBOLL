@@ -1,0 +1,78 @@
+gate4-main: 10 newly completed; 170 total in output; elapsed=8.8s
+gate4-main: 20 newly completed; 180 total in output; elapsed=26.6s
+gate4-main: 30 newly completed; 190 total in output; elapsed=75.9s
+gate4-main: 40 newly completed; 200 total in output; elapsed=82.9s
+gate4-main: 50 newly completed; 210 total in output; elapsed=110.4s
+gate4-main: 60 newly completed; 220 total in output; elapsed=133.1s
+gate4-main: 70 newly completed; 230 total in output; elapsed=166.0s
+gate4-main: 80 newly completed; 240 total in output; elapsed=183.1s
+gate4-main: 90 newly completed; 250 total in output; elapsed=208.8s
+gate4-main: 100 newly completed; 260 total in output; elapsed=241.6s
+gate4-main: 110 newly completed; 270 total in output; elapsed=258.3s
+gate4-main: 120 newly completed; 280 total in output; elapsed=287.7s
+gate4-main: 130 newly completed; 290 total in output; elapsed=331.6s
+gate4-main: 140 newly completed; 300 total in output; elapsed=339.3s
+gate4-main: 150 newly completed; 310 total in output; elapsed=373.8s
+gate4-main: 160 newly completed; 320 total in output; elapsed=417.0s
+gate4-main: 170 newly completed; 330 total in output; elapsed=429.0s
+gate4-main: 180 newly completed; 340 total in output; elapsed=454.5s
+gate4-main: 190 newly completed; 350 total in output; elapsed=529.9s
+gate4-main: 200 newly completed; 360 total in output; elapsed=538.7s
+gate4-main: 210 newly completed; 370 total in output; elapsed=570.5s
+gate4-main: 220 newly completed; 380 total in output; elapsed=595.4s
+gate4-main: 230 newly completed; 390 total in output; elapsed=606.0s
+gate4-main: 240 newly completed; 400 total in output; elapsed=633.3s
+gate4-main: 250 newly completed; 410 total in output; elapsed=670.8s
+gate4-main: 260 newly completed; 420 total in output; elapsed=707.9s
+gate4-main: 270 newly completed; 430 total in output; elapsed=725.9s
+gate4-main: 280 newly completed; 440 total in output; elapsed=752.9s
+gate4-main: 290 newly completed; 450 total in output; elapsed=784.9s
+gate4-main: 300 newly completed; 460 total in output; elapsed=793.5s
+gate4-main: 310 newly completed; 470 total in output; elapsed=830.5s
+gate4-main: 320 newly completed; 480 total in output; elapsed=884.1s
+gate4-main: 330 newly completed; 490 total in output; elapsed=895.4s
+gate4-main: 340 newly completed; 500 total in output; elapsed=913.6s
+gate4-main: 350 newly completed; 510 total in output; elapsed=975.0s
+gate4-main: 360 newly completed; 520 total in output; elapsed=985.3s
+gate4-main: 370 newly completed; 530 total in output; elapsed=1015.9s
+gate4-main: 380 newly completed; 540 total in output; elapsed=1080.1s
+gate4-main: 390 newly completed; 550 total in output; elapsed=1129.4s
+gate4-main: 400 newly completed; 560 total in output; elapsed=1147.0s
+gate4-main: 410 newly completed; 570 total in output; elapsed=1183.8s
+gate4-main: 420 newly completed; 580 total in output; elapsed=1215.1s
+gate4-main: 430 newly completed; 590 total in output; elapsed=1231.9s
+gate4-main: 440 newly completed; 600 total in output; elapsed=1260.5s
+gate4-main: 450 newly completed; 610 total in output; elapsed=1325.8s
+gate4-main: 460 newly completed; 620 total in output; elapsed=1333.9s
+gate4-main: 470 newly completed; 630 total in output; elapsed=1377.4s
+gate4-main: 480 newly completed; 640 total in output; elapsed=1434.9s
+gate4-main: 490 newly completed; 650 total in output; elapsed=1447.9s
+gate4-main: 500 newly completed; 660 total in output; elapsed=1476.2s
+gate4-main: 510 newly completed; 670 total in output; elapsed=1584.7s
+gate4-main: 520 newly completed; 680 total in output; elapsed=1592.3s
+gate4-main: 530 newly completed; 690 total in output; elapsed=1612.6s
+gate4-main: 540 newly completed; 700 total in output; elapsed=1643.6s
+gate4-main: 550 newly completed; 710 total in output; elapsed=1650.4s
+gate4-main: 560 newly completed; 720 total in output; elapsed=1670.4s
+gate4-main: 570 newly completed; 730 total in output; elapsed=1712.1s
+gate4-main: 580 newly completed; 740 total in output; elapsed=1742.7s
+gate4-main: 590 newly completed; 750 total in output; elapsed=1762.1s
+gate4-main: 600 newly completed; 760 total in output; elapsed=1786.2s
+gate4-main: 610 newly completed; 770 total in output; elapsed=1853.9s
+gate4-main: 620 newly completed; 780 total in output; elapsed=1864.8s
+gate4-main: 630 newly completed; 790 total in output; elapsed=1913.5s
+gate4-main: 640 newly completed; 800 total in output; elapsed=1988.0s
+{
+  "rows": 640,
+  "unique_ids": 640,
+  "invalid_calls": 0,
+  "parse_failures": 0,
+  "replay_mismatches": 0,
+  "batch": "gate4-main",
+  "newly_executed": 640,
+  "started_at_utc": "2026-10-11T09:28:14.234364+00:00",
+  "wall_time_s": 1988.035441395,
+  "code_commit": "1d0459c16ef8ebe431c12d8411d47ebd66906487",
+  "config": "configs/v2_remaining.yaml",
+  "config_sha256": "e85764249f9a07a80a61204bc87eb374586c1f6d2838b59deed942c97e57c217"
+}
