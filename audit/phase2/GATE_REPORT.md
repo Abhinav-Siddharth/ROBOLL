@@ -51,3 +51,7 @@ Before: 4 failed. After: 414 passed. Malformed anchor calls do not consume trans
 
 Before: 2 failed. After: 416 passed. Legacy keys are identical and cache entries remain readable without mutation. New namespaces include digest, server version and context option. New cache-hit and internal retry counts are recorded without altering legacy runner metrics. No inference yet.
 
+## Gate 3 batch instrumentation VERIFIED
+
+418 tests passed, including protected-path and exact-ID guards. New rows record model/options/code/cache provenance and actual episode wall time. Batch completion enforces the preregistered structural gate.
+

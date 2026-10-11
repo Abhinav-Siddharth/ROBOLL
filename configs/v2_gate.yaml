@@ -1,0 +1,6 @@
+tasks: all
+cells: [ST-F, PRE-F]
+seeds: [0]
+methods: [B2, B3, B4, B5]
+max_failures: 8
+temperature: 0.7

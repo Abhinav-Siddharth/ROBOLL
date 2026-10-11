@@ -1,0 +1,6 @@
+tasks: all
+cells: [TR-T1, TR-T2, TR-T3, TR-P, PAR-F, PAR-P, ST-F, ST-P, PRE-F, PRE-P]
+seeds: [0]
+methods: [B2C]
+max_failures: 8
+temperature: 0.7
