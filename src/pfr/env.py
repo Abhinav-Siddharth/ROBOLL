@@ -124,7 +124,8 @@ class Env:
         return True
 
     # -------------------------------------------------------------- execution
-    def execute(self, call: Call) -> Result:
+    def validate_call(self, call: Call) -> Optional[Result]:
+        """Check format and allowed values without executing or touching world state."""
         spec = SKILL_ARGS.get(call.skill)
         if spec is None:
             return _fail("PRECOND_UNMET", f"invalid call: unknown skill {call.skill!r}")
@@ -132,6 +133,13 @@ class Env:
             v = call.args.get(k)
             if v not in VALUES[k]:
                 return _fail("PRECOND_UNMET", f"invalid call: {k}={v!r}")
+        return None
+
+    def execute(self, call: Call) -> Result:
+        invalid = self.validate_call(call)
+        if invalid is not None:
+            return invalid
+        spec = SKILL_ARGS[call.skill]
         return getattr(self, f"_{call.skill}")(**{k: call.args[k] for k in spec})
 
     def _goto(self, loc: str) -> Result:

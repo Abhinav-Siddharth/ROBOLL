@@ -1,0 +1,84 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_fault_validation.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate3-validation-before
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+_____ test_malformed_anchor_is_validated_before_fault_interception[TR-T1] ______
+
+cell = 'TR-T1'
+
+    @pytest.mark.parametrize('cell', ['TR-T1', 'PAR-F', 'PRE-F'])
+    def test_malformed_anchor_is_validated_before_fault_interception(cell):
+        task = TASKS[0]
+        fault = build_fault(task, cell, 0)
+        env = Env(task['init_state'])
+        fenv = FaultyEnv(env, fault)
+        before = env.observe()
+        result = fenv.execute(Call('pick', {'obj': 'apple', 'grasp': None}))
+>       assert result.code == 'PRECOND_UNMET'
+E       AssertionError: assert 'EXEC_TRANSIENT' == 'PRECOND_UNMET'
+E         
+E         - PRECOND_UNMET
+E         + EXEC_TRANSIENT
+
+tests/test_fault_validation.py:15: AssertionError
+_____ test_malformed_anchor_is_validated_before_fault_interception[PAR-F] ______
+
+cell = 'PAR-F'
+
+    @pytest.mark.parametrize('cell', ['TR-T1', 'PAR-F', 'PRE-F'])
+    def test_malformed_anchor_is_validated_before_fault_interception(cell):
+        task = TASKS[0]
+        fault = build_fault(task, cell, 0)
+        env = Env(task['init_state'])
+        fenv = FaultyEnv(env, fault)
+        before = env.observe()
+        result = fenv.execute(Call('pick', {'obj': 'apple', 'grasp': None}))
+>       assert result.code == 'PRECOND_UNMET'
+E       AssertionError: assert 'PARAM_MISMATCH' == 'PRECOND_UNMET'
+E         
+E         - PRECOND_UNMET
+E         + PARAM_MISMATCH
+
+tests/test_fault_validation.py:15: AssertionError
+_____ test_malformed_anchor_is_validated_before_fault_interception[PRE-F] ______
+
+cell = 'PRE-F'
+
+    @pytest.mark.parametrize('cell', ['TR-T1', 'PAR-F', 'PRE-F'])
+    def test_malformed_anchor_is_validated_before_fault_interception(cell):
+        task = TASKS[0]
+        fault = build_fault(task, cell, 0)
+        env = Env(task['init_state'])
+        fenv = FaultyEnv(env, fault)
+        before = env.observe()
+        result = fenv.execute(Call('pick', {'obj': 'apple', 'grasp': None}))
+        assert result.code == 'PRECOND_UNMET'
+>       assert result.detail == 'invalid call: grasp=None'
+E       AssertionError: assert 'precondition...sink required' == 'invalid call: grasp=None'
+E         
+E         - invalid call: grasp=None
+E         + precondition: prior visit to sink required
+
+tests/test_fault_validation.py:16: AssertionError
+_______________ test_invalid_pick_does_not_clear_transient_fault _______________
+
+    def test_invalid_pick_does_not_clear_transient_fault():
+        fault = build_fault(TASKS[0], 'TR-T1', 0)
+        env = Env(TASKS[0]['init_state'])
+        fenv = FaultyEnv(env, fault)
+        fenv.execute(Call('goto', {'loc': 'counter'}))
+        fenv.execute(Call('pick', {'obj': 'apple', 'grasp': None}))
+>       assert fenv.execute(Call('pick', {'obj': 'apple', 'grasp': 'top'})).code == 'EXEC_TRANSIENT'
+E       AssertionError: assert 'OK' == 'EXEC_TRANSIENT'
+E         
+E         - EXEC_TRANSIENT
+E         + OK
+
+tests/test_fault_validation.py:28: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_fault_validation.py::test_malformed_anchor_is_validated_before_fault_interception[TR-T1]
+FAILED tests/test_fault_validation.py::test_malformed_anchor_is_validated_before_fault_interception[PAR-F]
+FAILED tests/test_fault_validation.py::test_malformed_anchor_is_validated_before_fault_interception[PRE-F]
+FAILED tests/test_fault_validation.py::test_invalid_pick_does_not_clear_transient_fault
+4 failed in 0.07s
+
+exit_code=1

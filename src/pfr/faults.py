@@ -133,6 +133,9 @@ class FaultyEnv:
         return self.env.observe()
 
     def execute(self, call: Call) -> Result:
+        invalid = self.env.validate_call(call)
+        if invalid is not None:
+            return invalid
         f = self.fault
         if f.kind != "NONE" and not f.cleared:
             r = self._intercept(call)

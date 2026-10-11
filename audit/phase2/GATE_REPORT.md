@@ -43,3 +43,7 @@ Prospective amendment written before inference; diff in gate2-amendment.diff. Al
 
 Before: 6 failed. After: 410 passed. Skill-specific required arguments and allowed values are enforced by the shared replan schema for B2-B5. Parsed schema-invalid output follows the existing three parse attempts and is never cached. Prompt text is unchanged; version v2-format denotes the schema. No inference yet.
 
+## Gate 3 pre-interception validation VERIFIED
+
+Before: 4 failed. After: 414 passed. Malformed anchor calls do not consume transient counters or prerequisites; valid calls preserve their behavior. All 1320 v1 rows still replay with 0 mismatches. No inference yet.
+
