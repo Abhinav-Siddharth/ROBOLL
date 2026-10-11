@@ -1,0 +1,86 @@
+RUN /tmp/pfr-phase3-clean/.venv/bin/python /tmp/pfr-phase3-clean/analysis/make_figures.py /tmp/pfr-phase3-clean/results/raw/qwen.jsonl
+          n  correct  regret   loop  human_queries    tokens  latency_s
+method                                                                 
+B0      220    0.364   4.182  0.727          0.000     0.000      0.000
+B1      220    0.636   1.000  0.727          0.000     0.000      0.000
+B2      220    0.455   3.695  0.545          0.000  1628.968      6.006
+B3      220    0.091   5.891  0.895          0.000  2915.259     11.860
+B4      220    0.682   3.355  0.541          0.227  2024.977      4.788
+B5      220    0.814   1.395  0.350          0.091   481.859      2.084 
+
+hypothesis comparison                         subset_metric  n_pairs   diff  ci_lo  ci_hi                             reading
+        H1    B5 - B1                     T1/T2 correctness       40  0.000  0.000  0.000 CI includes 0 (no clear difference)
+        H1    B5 - B3                     T1/T2 correctness       40  1.000  1.000  1.000            CI excludes 0 (A better)
+        H2    B5 - B0                         P-cell regret       80 -4.700 -4.850 -4.550            CI excludes 0 (A better)
+        H2    B5 - B4                         P-cell regret       80 -3.788 -4.112 -3.425            CI excludes 0 (A better)
+        H2    B5 - B3                         P-cell regret       80 -4.550 -4.763 -4.275            CI excludes 0 (A better)
+        H2    B5 - B4                      P-cell loop rate       80 -0.512 -0.646 -0.388            CI excludes 0 (A better)
+        H2    B5 - B3                      P-cell loop rate       80 -0.512 -0.637 -0.388            CI excludes 0 (A better)
+        H3    B5 - B4                    F-cell correctness       60 -0.233 -0.367 -0.117             CI excludes 0 (A worse)
+        H3    B5 - B3                    F-cell correctness       60  0.333  0.200  0.483            CI excludes 0 (A better)
+        H4    B1 - B5                    P-cell correctness       80  0.013  0.000  0.050 CI includes 0 (no clear difference)
+        H4    B1 - B5                         P-cell regret       80 -0.300 -0.450 -0.150            CI excludes 0 (A better)
+        H4    B1 - B5                    F + T3 correctness       80 -0.500 -0.637 -0.362             CI excludes 0 (A worse)
+      MAIN    B5 - B1                  all-cell correctness      220  0.177  0.114  0.241            CI excludes 0 (A better)
+      MAIN    B5 - B4                  all-cell correctness      220  0.132  0.050  0.214            CI excludes 0 (A better)
+      MAIN    B5 - B3                  all-cell correctness      220  0.723  0.650  0.791            CI excludes 0 (A better)
+      MAIN    B4 - B2 does history help the LLM? (B4 vs B2)      220  0.227  0.164  0.295            CI excludes 0 (A better)
+
+saved figures/fig1..fig4 and results/tables/*.csv
+RUN /tmp/pfr-phase3-clean/.venv/bin/python /tmp/pfr-phase3-clean/analysis/derive.py /tmp/pfr-phase3-clean/results/raw/qwen.jsonl --out /tmp/pfr-phase3-rebuilt/results/derived_v1
+1320 unique episodes; costs and H2 definitions written to /tmp/pfr-phase3-rebuilt/results/derived_v1
+RUN /tmp/pfr-phase3-clean/.venv/bin/python /tmp/pfr-phase3-clean/analysis/make_figures.py /tmp/pfr-phase3-clean/results/raw/qwen_v2.jsonl
+          n  correct  regret   loop  human_queries    tokens  latency_s
+method                                                                 
+B0      220    0.364   4.182  0.727          0.000     0.000      0.000
+B1      220    0.636   1.000  0.727          0.000     0.000      0.000
+B2      220    0.455   3.686  0.545          0.000  1604.864      5.891
+B3      220    0.527   2.941  0.450          0.000  1864.932      8.274
+B4      220    0.709   3.282  0.536          0.245  1996.355      4.803
+B5      220    0.955   0.973  0.282          0.091   373.550      1.666 
+
+hypothesis comparison                         subset_metric  n_pairs   diff  ci_lo  ci_hi                             reading
+        H1    B5 - B1                     T1/T2 correctness       40  0.000  0.000  0.000 CI includes 0 (no clear difference)
+        H1    B5 - B3                     T1/T2 correctness       40  0.150  0.025  0.300            CI excludes 0 (A better)
+        H2    B5 - B0                         P-cell regret       80 -4.787 -4.975 -4.625            CI excludes 0 (A better)
+        H2    B5 - B4                         P-cell regret       80 -3.913 -4.213 -3.625            CI excludes 0 (A better)
+        H2    B5 - B3                         P-cell regret       80 -4.463 -4.725 -4.125            CI excludes 0 (A better)
+        H2    B5 - B4                      P-cell loop rate       80 -0.512 -0.637 -0.388            CI excludes 0 (A better)
+        H2    B5 - B3                      P-cell loop rate       80 -0.475 -0.613 -0.350            CI excludes 0 (A better)
+        H3    B5 - B4                    F-cell correctness       60  0.250  0.117  0.400            CI excludes 0 (A better)
+        H3    B5 - B3                    F-cell correctness       60  0.133  0.033  0.250            CI excludes 0 (A better)
+        H4    B1 - B5                    P-cell correctness       80  0.037  0.000  0.100 CI includes 0 (no clear difference)
+        H4    B1 - B5                         P-cell regret       80 -0.212 -0.375 -0.025            CI excludes 0 (A better)
+        H4    B1 - B5                    F + T3 correctness       80 -0.912 -0.975 -0.825             CI excludes 0 (A worse)
+      MAIN    B5 - B1                  all-cell correctness      220  0.318  0.241  0.395            CI excludes 0 (A better)
+      MAIN    B5 - B4                  all-cell correctness      220  0.245  0.173  0.323            CI excludes 0 (A better)
+      MAIN    B5 - B3                  all-cell correctness      220  0.427  0.350  0.509            CI excludes 0 (A better)
+      MAIN    B4 - B2 does history help the LLM? (B4 vs B2)      220  0.255  0.186  0.327            CI excludes 0 (A better)
+
+saved figures/fig1..fig4 and results/tables/*.csv
+RUN /tmp/pfr-phase3-clean/.venv/bin/python /tmp/pfr-phase3-clean/analysis/derive.py /tmp/pfr-phase3-clean/results/raw/qwen_v2.jsonl --out /tmp/pfr-phase3-rebuilt/results/v2/derived
+1320 unique episodes; costs and H2 definitions written to /tmp/pfr-phase3-rebuilt/results/v2/derived
+RUN /tmp/pfr-phase3-clean/.venv/bin/python /tmp/pfr-phase3-clean/analysis/compare_versions.py --v1 /tmp/pfr-phase3-clean/results/raw/qwen.jsonl --v2 /tmp/pfr-phase3-clean/results/raw/qwen_v2.jsonl --ablation /tmp/pfr-phase3-clean/results/raw/qwen_v2_ablation.jsonl --out /tmp/pfr-phase3-rebuilt/results/v2
+Version comparison: 72 method/metric rows written to /tmp/pfr-phase3-rebuilt/results/v2
+RUN /tmp/pfr-phase3-clean/.venv/bin/python /tmp/pfr-phase3-clean/analysis/plot_derived.py /tmp/pfr-phase3-clean/results/raw/qwen_v2.jsonl --out /tmp/pfr-phase3-rebuilt/results/v2/figures
+Companion literal-cost and zero-human figures written to /tmp/pfr-phase3-rebuilt/results/v2/figures
+RUN /tmp/pfr-phase3-clean/.venv/bin/python /tmp/pfr-phase3-clean/scripts/make_reel.py --jsonl /tmp/pfr-phase3-clean/results/raw/qwen.jsonl --out /tmp/pfr-phase3-rebuilt/demo/reel.mp4 --res 640x360
+pybullet build time: Oct 10 2026 00:10:31
+rendering qwen2.5:7b|B0|t01|TR-P|0
+rendering qwen2.5:7b|B5|t01|TR-P|0
+rendering qwen2.5:7b|B0|t01|PAR-F|0
+rendering qwen2.5:7b|B5|t01|PAR-F|0
+rendering qwen2.5:7b|B3|t01|ST-P|0
+rendering qwen2.5:7b|B5|t01|ST-P|0
+wrote /tmp/pfr-phase3-rebuilt/demo/reel.mp4  (3721 frames, 124s)
+RUN /tmp/pfr-phase3-clean/.venv/bin/python /tmp/pfr-phase3-clean/scripts/replay.py --jsonl /tmp/pfr-phase3-clean/results/raw/qwen.jsonl --task t06 --cell PAR-F --method B0 --res 640x360 --video /tmp/pfr-phase3-rebuilt/demo/t06_PAR-F_B0.mp4
+pybullet build time: Oct 10 2026 00:10:31
+replaying qwen2.5:7b|B0|t06|PAR-F|0 (9 steps)
+wrote /tmp/pfr-phase3-rebuilt/demo/t06_PAR-F_B0.mp4 (735 frames, 24s)
+max IK position error over the replay: 0.01 cm
+RUN /tmp/pfr-phase3-clean/.venv/bin/python /tmp/pfr-phase3-clean/scripts/replay.py --jsonl /tmp/pfr-phase3-clean/results/raw/qwen.jsonl --task t06 --cell PAR-F --method B5 --res 640x360 --video /tmp/pfr-phase3-rebuilt/demo/t06_PAR-F_B5.mp4
+pybullet build time: Oct 10 2026 00:10:31
+replaying qwen2.5:7b|B5|t06|PAR-F|0 (8 steps)
+wrote /tmp/pfr-phase3-rebuilt/demo/t06_PAR-F_B5.mp4 (532 frames, 18s)
+max IK position error over the replay: 0.01 cm
+ARTIFACT DIFF: 50 files compared; 0 different

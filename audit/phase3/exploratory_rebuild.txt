@@ -1,0 +1,6 @@
+exploratory, defined after seeing the data: 864 means, 2160 paired comparisons, 24 break-even rows
+/home/abhi_pop/.config/matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /tmp/matplotlib-n6gy2epa because there was an issue with the default path (/home/abhi_pop/.config/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+exploratory, defined after seeing the data: 12 Pareto method/version rows; pareto.png written
+exploratory, defined after seeing the data: 192 termination/dependence rows; dependence describes observed human involvement, not a counterfactual effect
+exploratory, defined after seeing the data: 11 claims checked; 408 freshly computed statistics; claims_evidence.md written

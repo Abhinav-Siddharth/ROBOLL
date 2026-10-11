@@ -1,0 +1,3 @@
+pybullet build time: Oct 10 2026 00:10:31
+replaying qwen2.5:7b|B5|t06|PAR-F|0 (8 steps)
+max IK position error over the replay: 0.01 cm

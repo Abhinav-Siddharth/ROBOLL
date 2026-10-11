@@ -1,0 +1,8 @@
+VERIFIED: 19 protected v1 artifacts unchanged
+VERIFIED: primary analysis, policy and tasks remain frozen
+V2 {'rows': 1320, 'unique_ids': 1320, 'invalid_calls': 0, 'parse_failures': 0, 'replay_mismatches': 0}
+VERIFIED: all saved cost/group/failure/decision metrics for 1320 rows
+Ablation {'rows': 200, 'unique_ids': 200, 'invalid_calls': 0, 'parse_failures': 0, 'replay_mismatches': 0}
+VERIFIED: all saved cost/group/failure/decision metrics for 200 rows
+VERIFIED: all saved cost/group/failure/decision metrics for 1320 rows
+VERIFIED: 800 new main episodes, 520 proven reused controls, 200 new ablation episodes

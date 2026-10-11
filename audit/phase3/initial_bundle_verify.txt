@@ -1,0 +1,12 @@
+/tmp/pfr-v2-primary.bundle is okay
+The bundle contains these 8 refs:
+cc0e9ef18fe03336da6dcee26b640cf907b296d3 refs/codex/turn-diffs/captures/1791733181105/d0d2165b-edde-4fd2-ae45-9a1c0e1bedfb/base
+e0491f87c8839fa28429112f25a32dff4e6f6fb8 refs/codex/turn-diffs/checkpoints/72912a9e2e6c1bc854dc0c7b969f5d18/03ed7da29cd204d36e1e14e2da53f304/1791709079663/851194b8-5dca-444d-87d5-73be3466ac79
+cc94e307f3211325e18b4291a2e5ac7391a662d3 refs/heads/master
+1eb8c3c5b3f355e41ae0e5fff17a7f17bab618a1 refs/tags/pre-phase2
+f2a2bb0c8591cd4c4593e714b978f3b08b0392ef refs/tags/prereg-v1
+a2b3083daf91e05d18878d320670608c2aeb4a70 refs/tags/prompts-frozen-v1
+0eb9fc62cf253fac761157e057fe12b98b17eeda refs/tags/v2-primary
+cc94e307f3211325e18b4291a2e5ac7391a662d3 HEAD
+The bundle records a complete history.
+The bundle uses this hash algorithm: sha1

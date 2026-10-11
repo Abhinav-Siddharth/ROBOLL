@@ -1,0 +1,17 @@
+Obtaining file:///tmp/pfr-phase3-clean
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: pfr
+  Building editable for pfr (pyproject.toml): started
+  Building editable for pfr (pyproject.toml): finished with status 'done'
+  Created wheel for pfr: filename=pfr-0.1.0-0.editable-py3-none-any.whl size=1307 sha256=a83fae77bcda6560180f0dabc60a66f687eb503763dfedd65febf54676f38575
+  Stored in directory: /tmp/pip-ephem-wheel-cache-0v_v8fmb/wheels/ad/29/51/1838783488b5b431f6edf5781867a65161d230de09a829e12d
+Successfully built pfr
+Installing collected packages: pfr
+Successfully installed pfr-0.1.0
