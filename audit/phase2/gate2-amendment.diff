@@ -1,0 +1,66 @@
+diff --git a/paper/prereg.md b/paper/prereg.md
+index b95aeab..e4b4893 100644
+--- a/paper/prereg.md
++++ b/paper/prereg.md
+@@ -68,3 +68,61 @@ that these corrections recover an external preregistration or actual run timesta
+ The oracle is a forced initial attempt recovery oracle; F=2 does not describe an
+ unrestricted clairvoyant initial plan. Archived legacy regret and literal anchor regret
+ are now distinguished. The B4/B2 side comparison concerns a context bundle, not history alone.
++
++
++## Prospective format-validity amendment, 2026-10-11
++
++Written at 2026-10-11T14:38:55.016114+05:30, before any v2 inference. The user authorized completing all
++remaining gates on 2026-10-11. No v2 outcome was available when this amendment was written.
++
++The v1 defect permits missing required arguments in schema-constrained replans,
++particularly place.loc. V2 will require each skill's arguments and allowed values
++through skill-specific JSON-schema alternatives. Calls will be validated before
++fault interception, so malformed calls cannot consume a transient counter. This is
++a format-validity repair only: no method receives new task state, goal information,
++history, budget hints, fault labels or an additional repair prompt. Prompt text,
++policy thresholds, tasks, faults, seeds, temperature and execution failure caps
++remain fixed. Schema-validation errors follow the existing parse-retry seeds and
++limit; failures are reported. Failed replans are not completed by an oracle fallback.
++
++`results/raw/qwen_v2.jsonl` will be the primary dataset for H1-H4. V1 remains reported
++alongside it and is never overwritten. H1-H4, their comparison masks, and the original
++paired-row bootstrap implementation in `analysis/make_figures.py` remain identical.
++Original runner regret is retained as legacy regret in that primary analysis;
++literal anchor regret, total failure cost, named autonomous outcomes and task-cluster
++intervals are clearly labeled additional analyses. No favorable sensitivity result
++will replace a preregistered primary result.
++
++The gate runs 20 tasks x ST-F/PRE-F x B2-B5 = 160 episodes. A sound gate requires
++exact IDs with no duplicates, zero executed invalid calls, zero exhausted parsing/
++schema failures, model identity matching the recorded digest, and successful full
++state reconstruction with consistent outcome/goal labels. Success rates do not
++control continuation: low or null success is retained and does not justify prompt,
++threshold, task or seed changes. A structural failure stops the run for disclosure.
++
++After a sound gate, 640 additional faulted B2-B5 episodes complete the 800 new
++faulted episodes. B0/B1 and NONE rows may be reused only after proving by exact
++stub-free recorded-decision or deterministic execution comparisons that the changed
++schema and validation cannot alter them. Reused rows receive explicit source IDs,
++source file/hash, and reused=true. New rows are marked reused=false and carry run,
++code, model, inference-option, cache-namespace and wall-time provenance.
++
++The separate matched-context ablation uses B2C: B2 plus current failure count,
++remaining budget and untried parameter values, with no earlier failure history.
++It runs 200 faulted episodes (20 tasks x 10 cells), seed 0, on the same model,
++schema, options, caps and mode/modify/replan logic. Compare B2C with B4 to study
++history conditional on these hints, and with B2 to study the hints. These are
++secondary, post-audit comparisons; no new seed/model or KL study is included.
++
++All new inference uses `results/cache_v2`, versioned by namespace, model digest,
++server version and options. `results/cache` stays readable with its original keys.
++Smoke checking uses 20 seeds for each of mode, modify and replan (60 requests),
++reports parse/schema failures, and is not benchmark data. These smoke seeds do not
++add experimental seeds to the benchmark.
++
++No table or figure under the original results/tables or figures directories is
++replaced. V2 outputs go to results/v2; v1 derived outputs are results/derived_v1.
++Recorded historical latency suggests approximately 2-4 hours for the remaining
++inference and ablation, with actual wall time recorded. The baseline repair is a
++post-result amendment and carries a forking-paths risk; both versions and all null
++or adverse results will remain visible.

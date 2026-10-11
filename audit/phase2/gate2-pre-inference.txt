@@ -1,0 +1,4 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -c import hashlib,json,pathlib; m=json.loads(pathlib.Path('audit/phase2/protected_sha256.json').read_text()); assert all(hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()==h for p,h in m.items()); assert not pathlib.Path('results/raw/qwen_v2.jsonl').exists(); print('All protected v1 hashes match; v2 file absent; no v2 inference yet')
+All protected v1 hashes match; v2 file absent; no v2 inference yet
+
+exit_code=0

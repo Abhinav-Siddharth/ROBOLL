@@ -1,0 +1,9 @@
+{
+  "written_at": "2026-10-11T14:38:55.016114+05:30",
+  "primary_analysis_sha256": "1b7f33e2554660f5cb2f7e57e7cc5a4a8d437601a8444efc313ebc2aadf21b40",
+  "policy_sha256": "9cc2bf27c8d318a098549fac668364b717b17cd78b823c2237d91de2963f09ff",
+  "tasks_sha256": "c180a2dfc81ef00e10207a82a05d4b3a97984202d0ba235ebfe191da9c198530",
+  "fault_generator_preformat_sha256": "fcb5b0ed5043c8ea1db0706a82d78a175bca3e742a294578cab220192b974b3c",
+  "approval": "User: finish all gates basically the full prompt",
+  "gate": "160 exact unique IDs, zero invalid calls, zero exhausted parse/schema failures, consistent replay; no success threshold"
+}

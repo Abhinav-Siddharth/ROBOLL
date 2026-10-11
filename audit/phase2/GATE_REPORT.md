@@ -35,3 +35,7 @@ Before: 1 failed. After: 400 passed. scripts/record_metadata.py read /api/tags, 
 
 Before: 4 failed. After: 404 passed. CSV-generated notes use current v1 values, explicit correct-termination formulas and context-bundle/observable-ST limitations. Oracle convention and genuinely unknown registration metadata are disclosed. Seven bibliography entries were checked against official arXiv abstract metadata, linked in bibliography_sources.json. Full comparative literature review and an assembled manuscript remain outside this gate and UNVERIFIED.
 
+## Gate 2 VERIFIED
+
+Prospective amendment written before inference; diff in gate2-amendment.diff. All protected v1 hashes match; v2 file did not yet exist. User authorization to finish all gates supersedes the earlier wait-for-OK instruction. Scope: validity repair, 160 structural gate then 640 remaining faulted episodes, B2C 200, no new benchmark seeds or model. Primary hypotheses and analysis hash are frozen in prereg_manifest.json.
+
