@@ -1,0 +1,11 @@
+$ PYTHONPATH="" PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PFR_CACHE=/tmp/pfr-final-clone-cache MPLCONFIGDIR=/tmp/pfr-final-clone-mpl /tmp/pfr-phase2-final-venv/bin/python -m pytest -q -rs -p no:cacheprovider --basetemp=/tmp/pfr-final-clone-tests
+Working directory: /tmp/pfr-phase2-final-clone
+........................................................................ [ 16%]
+........................................................................ [ 33%]
+........................................................................ [ 50%]
+........................................................................ [ 67%]
+........................................................................ [ 84%]
+.................................................................        [100%]
+425 passed in 2.80s
+
+exit_code=0

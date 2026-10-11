@@ -75,3 +75,7 @@ On 200 faulted cases, raw correctness is B2=0.400, B2C=0.440, B4=0.680. Zero-hum
 
 V2 notes are generated directly from CSVs and retain v1 alongside v2. Their added consistency test failed before regeneration and passed afterward; full suite 425 passed. Figures 1-4 retain the primary code; companion figures label literal costs and zero-human correctness explicitly. The heatmap and literal-cost panel were visually inspected.
 
+
+## FINAL VERIFIED
+
+Clean clone of d0a954092e6e41a7aea285dd1fc8557af42ef12d: editable install succeeds with declared dependencies; imports exclude the dev checkout; 425 passed in 2.80s, zero skips/failures. The clean-clone integrity check repeats every preservation, ID, saved-metric and replay check successfully. No independent model regeneration was done. See final-clone-* transcripts and FINAL_REPORT.md for outcomes and explicit remaining limitations.

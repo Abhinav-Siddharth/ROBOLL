@@ -1,0 +1,11 @@
+pfr: /tmp/pfr-phase2-final-clone/src/pfr/__init__.py
+runner: /tmp/pfr-phase2-final-clone/src/pfr/runner.py
+replay: /tmp/pfr-phase2-final-clone/src/pfr/viz/state.py
+dev checkout on sys.path: False
+runtime Requires-Dist: ['ollama', 'pydantic', 'PyYAML', 'tqdm', 'numpy', 'pandas', 'matplotlib', 'jsonschema', 'pytest==9.1.1; extra == "test"', 'tomli; python_version < "3.11" and extra == "test"', 'pybullet>=3.2.6; extra == "viz"', 'imageio>=2.34; extra == "viz"', 'imageio-ffmpeg>=0.5; extra == "viz"', 'pillow>=10.1; extra == "viz"']
+numpy 2.5.4
+pandas 3.0.6
+pydantic 2.14.0
+jsonschema 4.26.0
+pytest 9.1.1
+pybullet 3.2.7

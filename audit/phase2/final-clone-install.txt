@@ -1,0 +1,54 @@
+Obtaining file:///tmp/pfr-phase2-final-clone
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: ollama in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pfr==0.1.0) (0.6.3)
+Requirement already satisfied: pydantic in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pfr==0.1.0) (2.14.0)
+Requirement already satisfied: PyYAML in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pfr==0.1.0) (6.0.3)
+Requirement already satisfied: tqdm in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pfr==0.1.0) (4.70.1)
+Requirement already satisfied: numpy in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pfr==0.1.0) (2.5.4)
+Requirement already satisfied: pandas in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pfr==0.1.0) (3.0.6)
+Requirement already satisfied: matplotlib in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pfr==0.1.0) (3.11.2)
+Requirement already satisfied: jsonschema in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pfr==0.1.0) (4.26.0)
+Requirement already satisfied: pytest==9.1.1 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pfr==0.1.0) (9.1.1)
+Requirement already satisfied: iniconfig>=1.0.1 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pytest==9.1.1->pfr==0.1.0) (2.3.1)
+Requirement already satisfied: packaging>=22 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pytest==9.1.1->pfr==0.1.0) (26.3)
+Requirement already satisfied: pluggy<2,>=1.5 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pytest==9.1.1->pfr==0.1.0) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pytest==9.1.1->pfr==0.1.0) (2.21.0)
+Requirement already satisfied: attrs>=22.2.0 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from jsonschema->pfr==0.1.0) (26.1.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from jsonschema->pfr==0.1.0) (2025.9.1)
+Requirement already satisfied: referencing>=0.28.4 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from jsonschema->pfr==0.1.0) (0.37.0)
+Requirement already satisfied: rpds-py>=0.25.0 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from jsonschema->pfr==0.1.0) (2026.9.1)
+Requirement already satisfied: contourpy>=1.0.1 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from matplotlib->pfr==0.1.0) (1.4.0)
+Requirement already satisfied: cycler>=0.10 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from matplotlib->pfr==0.1.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.28.2 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from matplotlib->pfr==0.1.0) (4.66.1)
+Requirement already satisfied: kiwisolver>=1.3.1 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from matplotlib->pfr==0.1.0) (1.5.1)
+Requirement already satisfied: pillow>=9 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from matplotlib->pfr==0.1.0) (12.3.0)
+Requirement already satisfied: pyparsing>=3 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from matplotlib->pfr==0.1.0) (3.3.3)
+Requirement already satisfied: python-dateutil>=2.7 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from matplotlib->pfr==0.1.0) (2.9.0.post0)
+Requirement already satisfied: httpx>=0.27 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from ollama->pfr==0.1.0) (0.28.1)
+Requirement already satisfied: annotated-types>=0.6.0 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pydantic->pfr==0.1.0) (0.8.0)
+Requirement already satisfied: pydantic-core==2.50.0 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pydantic->pfr==0.1.0) (2.50.0)
+Requirement already satisfied: typing-extensions>=4.16.0 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pydantic->pfr==0.1.0) (4.16.0)
+Requirement already satisfied: typing-inspection>=0.4.4 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from pydantic->pfr==0.1.0) (0.4.4)
+Requirement already satisfied: anyio in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from httpx>=0.27->ollama->pfr==0.1.0) (4.15.1)
+Requirement already satisfied: certifi in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from httpx>=0.27->ollama->pfr==0.1.0) (2026.7.22)
+Requirement already satisfied: httpcore==1.* in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from httpx>=0.27->ollama->pfr==0.1.0) (1.0.9)
+Requirement already satisfied: idna in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from httpx>=0.27->ollama->pfr==0.1.0) (3.20)
+Requirement already satisfied: h11>=0.16 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from httpcore==1.*->httpx>=0.27->ollama->pfr==0.1.0) (0.16.0)
+Requirement already satisfied: six>=1.5 in /tmp/pfr-phase2-final-venv/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib->pfr==0.1.0) (1.17.0)
+Checking if build backend supports build_editable: started
+Checking if build backend supports build_editable: finished with status 'done'
+Building wheels for collected packages: pfr
+  Building editable for pfr (pyproject.toml): started
+  Building editable for pfr (pyproject.toml): finished with status 'done'
+  Created wheel for pfr: filename=pfr-0.1.0-0.editable-py3-none-any.whl size=1313 sha256=f71f2481e5c0ceec45246bface4c7c9072f9386e869498ebd62c6c9cd4c08c02
+  Stored in directory: /tmp/pip-ephem-wheel-cache-lkumw278/wheels/28/c8/f8/bc3c61a39e96bf00e8be9e1740e377ee9e0cd01ea1f6b8e03c
+Successfully built pfr
+Installing collected packages: pfr
+Successfully installed pfr-0.1.0
