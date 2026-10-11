@@ -1,0 +1,10 @@
+hypothesis,comparison,subset_metric,n_pairs,diff,ci_lo,ci_hi,reading
+H2,B5 - B0,P-cell anchor_regret,80,-4.987,-5.188,-4.8,CI excludes 0 (A better)
+H2,B5 - B4,P-cell anchor_regret,80,-4.025,-4.375,-3.675,CI excludes 0 (A better)
+H2,B5 - B3,P-cell anchor_regret,80,-3.788,-4.15,-3.388,CI excludes 0 (A better)
+H2,B5 - B0,P-cell total_failure_cost,80,-4.7,-4.85,-4.55,CI excludes 0 (A better)
+H2,B5 - B4,P-cell total_failure_cost,80,-3.788,-4.112,-3.425,CI excludes 0 (A better)
+H2,B5 - B3,P-cell total_failure_cost,80,-4.55,-4.763,-4.275,CI excludes 0 (A better)
+H2,B5 - B0,P-cell legacy_regret,80,-4.7,-4.85,-4.55,CI excludes 0 (A better)
+H2,B5 - B4,P-cell legacy_regret,80,-3.788,-4.112,-3.425,CI excludes 0 (A better)
+H2,B5 - B3,P-cell legacy_regret,80,-4.55,-4.763,-4.275,CI excludes 0 (A better)

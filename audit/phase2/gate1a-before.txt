@@ -1,0 +1,23 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_derived_metrics.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate1a-before
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_____________ test_costs_separate_anchor_calls_from_other_failures _____________
+
+    def test_costs_separate_anchor_calls_from_other_failures():
+>       from pfr.metrics import episode_costs
+E       ModuleNotFoundError: No module named 'pfr.metrics'
+
+tests/test_derived_metrics.py:5: ModuleNotFoundError
+______________ test_costs_count_repeated_successful_anchor_calls _______________
+
+    def test_costs_count_repeated_successful_anchor_calls():
+>       from pfr.metrics import episode_costs
+E       ModuleNotFoundError: No module named 'pfr.metrics'
+
+tests/test_derived_metrics.py:17: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_derived_metrics.py::test_costs_separate_anchor_calls_from_other_failures
+FAILED tests/test_derived_metrics.py::test_costs_count_repeated_successful_anchor_calls
+2 failed in 0.01s
+
+exit_code=1
