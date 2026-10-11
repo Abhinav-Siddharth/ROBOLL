@@ -1,0 +1,13 @@
+version,method,total_failure_cost,no_human_correct,n,pareto,status
+v1,B0,5.636363636363637,0.36363636363636365,220,False,"exploratory, defined after seeing the data"
+v1,B1,2.4545454545454546,0.6363636363636364,220,True,"exploratory, defined after seeing the data"
+v1,B2,5.0590909090909095,0.45454545454545453,220,False,"exploratory, defined after seeing the data"
+v1,B3,7.127272727272727,0.09090909090909091,220,False,"exploratory, defined after seeing the data"
+v1,B4,4.622727272727273,0.45454545454545453,220,False,"exploratory, defined after seeing the data"
+v1,B5,2.6,0.7227272727272728,220,True,"exploratory, defined after seeing the data"
+v2,B0,5.636363636363637,0.36363636363636365,220,False,"exploratory, defined after seeing the data"
+v2,B1,2.4545454545454546,0.6363636363636364,220,False,"exploratory, defined after seeing the data"
+v2,B2,5.05,0.45454545454545453,220,False,"exploratory, defined after seeing the data"
+v2,B3,4.168181818181818,0.5272727272727272,220,False,"exploratory, defined after seeing the data"
+v2,B4,4.5636363636363635,0.4681818181818182,220,False,"exploratory, defined after seeing the data"
+v2,B5,2.172727272727273,0.8636363636363636,220,True,"exploratory, defined after seeing the data"
