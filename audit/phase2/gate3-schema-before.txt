@@ -1,0 +1,121 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -m pytest tests/test_hardened_schema.py -q -p no:cacheprovider --basetemp /tmp/pfr-phase2-gate3-schema-before
+FFFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+__________ test_schema_rejects_each_missing_skill_argument[example0] ___________
+
+example = {'skill': 'goto', 'loc': 'table'}
+
+    @pytest.mark.parametrize('example', EXAMPLES)
+    def test_schema_rejects_each_missing_skill_argument(example):
+        from jsonschema import Draft202012Validator
+        validator = Draft202012Validator(prompts.REPLAN_SCHEMA)
+        assert validator.is_valid({'steps': [example]})
+        for required in SKILL_ARGS[example['skill']]:
+            missing = {k: v for k, v in example.items() if k != required}
+>           assert not validator.is_valid({'steps': [missing]}), required
+E           AssertionError: loc
+E           assert not True
+E            +  where True = is_valid({'steps': [{'skill': 'goto'}]})
+E            +    where is_valid = Draft202012Validator(schema={'properties': {'steps': {'items': {'properties': {'container': {'enum': [...]}, 'force': ...], 'type': 'object'}, 'maxItems': 12, 'type': 'array'}}, 'required': ['steps'], 'type': 'object'}, format_checker=None).is_valid
+
+tests/test_hardened_schema.py:23: AssertionError
+__________ test_schema_rejects_each_missing_skill_argument[example1] ___________
+
+example = {'skill': 'pick', 'obj': 'apple', 'grasp': 'top'}
+
+    @pytest.mark.parametrize('example', EXAMPLES)
+    def test_schema_rejects_each_missing_skill_argument(example):
+        from jsonschema import Draft202012Validator
+        validator = Draft202012Validator(prompts.REPLAN_SCHEMA)
+        assert validator.is_valid({'steps': [example]})
+        for required in SKILL_ARGS[example['skill']]:
+            missing = {k: v for k, v in example.items() if k != required}
+>           assert not validator.is_valid({'steps': [missing]}), required
+E           AssertionError: obj
+E           assert not True
+E            +  where True = is_valid({'steps': [{'skill': 'pick', 'grasp': 'top'}]})
+E            +    where is_valid = Draft202012Validator(schema={'properties': {'steps': {'items': {'properties': {'container': {'enum': [...]}, 'force': ...], 'type': 'object'}, 'maxItems': 12, 'type': 'array'}}, 'required': ['steps'], 'type': 'object'}, format_checker=None).is_valid
+
+tests/test_hardened_schema.py:23: AssertionError
+__________ test_schema_rejects_each_missing_skill_argument[example2] ___________
+
+example = {'skill': 'place', 'obj': 'apple', 'loc': 'table', 'orient': 'upright'}
+
+    @pytest.mark.parametrize('example', EXAMPLES)
+    def test_schema_rejects_each_missing_skill_argument(example):
+        from jsonschema import Draft202012Validator
+        validator = Draft202012Validator(prompts.REPLAN_SCHEMA)
+        assert validator.is_valid({'steps': [example]})
+        for required in SKILL_ARGS[example['skill']]:
+            missing = {k: v for k, v in example.items() if k != required}
+>           assert not validator.is_valid({'steps': [missing]}), required
+E           AssertionError: obj
+E           assert not True
+E            +  where True = is_valid({'steps': [{'skill': 'place', 'loc': 'table', 'orient': 'upright'}]})
+E            +    where is_valid = Draft202012Validator(schema={'properties': {'steps': {'items': {'properties': {'container': {'enum': [...]}, 'force': ...], 'type': 'object'}, 'maxItems': 12, 'type': 'array'}}, 'required': ['steps'], 'type': 'object'}, format_checker=None).is_valid
+
+tests/test_hardened_schema.py:23: AssertionError
+__________ test_schema_rejects_each_missing_skill_argument[example3] ___________
+
+example = {'skill': 'open', 'container': 'drawer', 'force': 'med'}
+
+    @pytest.mark.parametrize('example', EXAMPLES)
+    def test_schema_rejects_each_missing_skill_argument(example):
+        from jsonschema import Draft202012Validator
+        validator = Draft202012Validator(prompts.REPLAN_SCHEMA)
+        assert validator.is_valid({'steps': [example]})
+        for required in SKILL_ARGS[example['skill']]:
+            missing = {k: v for k, v in example.items() if k != required}
+>           assert not validator.is_valid({'steps': [missing]}), required
+E           AssertionError: container
+E           assert not True
+E            +  where True = is_valid({'steps': [{'skill': 'open', 'force': 'med'}]})
+E            +    where is_valid = Draft202012Validator(schema={'properties': {'steps': {'items': {'properties': {'container': {'enum': [...]}, 'force': ...], 'type': 'object'}, 'maxItems': 12, 'type': 'array'}}, 'required': ['steps'], 'type': 'object'}, format_checker=None).is_valid
+
+tests/test_hardened_schema.py:23: AssertionError
+__________ test_schema_rejects_each_missing_skill_argument[example4] ___________
+
+example = {'skill': 'close', 'container': 'drawer'}
+
+    @pytest.mark.parametrize('example', EXAMPLES)
+    def test_schema_rejects_each_missing_skill_argument(example):
+        from jsonschema import Draft202012Validator
+        validator = Draft202012Validator(prompts.REPLAN_SCHEMA)
+        assert validator.is_valid({'steps': [example]})
+        for required in SKILL_ARGS[example['skill']]:
+            missing = {k: v for k, v in example.items() if k != required}
+>           assert not validator.is_valid({'steps': [missing]}), required
+E           AssertionError: container
+E           assert not True
+E            +  where True = is_valid({'steps': [{'skill': 'close'}]})
+E            +    where is_valid = Draft202012Validator(schema={'properties': {'steps': {'items': {'properties': {'container': {'enum': [...]}, 'force': ...], 'type': 'object'}, 'maxItems': 12, 'type': 'array'}}, 'required': ['steps'], 'type': 'object'}, format_checker=None).is_valid
+
+tests/test_hardened_schema.py:23: AssertionError
+__________ test_parsed_invalid_model_output_is_rejected_before_cache ___________
+
+tmp_path = PosixPath('/tmp/pfr-phase2-gate3-schema-before/test_parsed_invalid_model_outp0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7cc7cf11f080>
+
+    def test_parsed_invalid_model_output_is_rejected_before_cache(tmp_path, monkeypatch):
+        monkeypatch.setattr(llm, 'CACHE_DIR', str(tmp_path))
+        monkeypatch.setattr(llm, '_ollama_chat', lambda *a: {
+            'content': {'steps': [{'skill': 'place', 'obj': 'apple', 'orient': 'upright'}]},
+            'tokens': 10, 'latency_s': 0.1})
+        client = llm.LLMClient('test-double')
+>       assert client.call([], prompts.REPLAN_SCHEMA) is None
+E       AssertionError: assert {'steps': [{'skill': 'place', 'obj': 'apple', 'orient': 'upright'}]} is None
+E        +  where {'steps': [{'skill': 'place', 'obj': 'apple', 'orient': 'upright'}]} = call([], {'type': 'object', 'properties': {'steps': {'type': 'array', 'maxItems': 12, 'items': {'type': 'object', 'properties':...': [...]}, 'obj': {'enum': [...]}, 'container': {'enum': [...]}, ...}, 'required': ['skill']}}}, 'required': ['steps']})
+E        +    where call = <pfr.llm.LLMClient object at 0x7cc7cf11ddc0>.call
+E        +    and   {'type': 'object', 'properties': {'steps': {'type': 'array', 'maxItems': 12, 'items': {'type': 'object', 'properties':...': [...]}, 'obj': {'enum': [...]}, 'container': {'enum': [...]}, ...}, 'required': ['skill']}}}, 'required': ['steps']} = prompts.REPLAN_SCHEMA
+
+tests/test_hardened_schema.py:32: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_hardened_schema.py::test_schema_rejects_each_missing_skill_argument[example0]
+FAILED tests/test_hardened_schema.py::test_schema_rejects_each_missing_skill_argument[example1]
+FAILED tests/test_hardened_schema.py::test_schema_rejects_each_missing_skill_argument[example2]
+FAILED tests/test_hardened_schema.py::test_schema_rejects_each_missing_skill_argument[example3]
+FAILED tests/test_hardened_schema.py::test_schema_rejects_each_missing_skill_argument[example4]
+FAILED tests/test_hardened_schema.py::test_parsed_invalid_model_output_is_rejected_before_cache
+6 failed in 0.10s
+
+exit_code=1

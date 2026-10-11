@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import json
 
-from .env import CONTAINERS, FORCES, GRASPS, LOCS, OBJECTS, ORIENTS, SKILLS
+from .env import CONTAINERS, FORCES, GRASPS, LOCS, OBJECTS, ORIENTS, SKILLS, SKILL_ARGS, VALUES
 
-PROMPT_VERSION = "v1"
+PROMPT_VERSION = "v2-format"
 
 SYSTEM = ("You are the recovery module of a household robot. A skill execution has failed and you "
           "must decide how to react. Answer only with JSON that matches the schema.")
@@ -28,19 +28,20 @@ REPLAN_SCHEMA = {
             "type": "array",
             "maxItems": 12,
             "items": {
-                "type": "object",
-                "properties": {
-                    "skill": {"enum": SKILLS},
-                    "loc": {"enum": LOCS},
-                    "obj": {"enum": OBJECTS},
-                    "container": {"enum": CONTAINERS},
-                    "grasp": {"enum": GRASPS},
-                    "orient": {"enum": ORIENTS},
-                    "force": {"enum": FORCES},
-                },
-                "required": ["skill"],
+                "anyOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "skill": {"enum": [skill]},
+                            **{arg: {"enum": VALUES[arg]} for arg in args},
+                        },
+                        "required": ["skill", *args],
+                        "additionalProperties": False,
+                    }
+                    for skill, args in SKILL_ARGS.items()
+                ],
             },
-        }
+        },
     },
     "required": ["steps"],
 }

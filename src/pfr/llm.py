@@ -6,6 +6,8 @@ import json
 import os
 import time
 
+from jsonschema import ValidationError, validate
+
 from . import stub_llm
 
 CACHE_DIR = os.environ.get("PFR_CACHE", "results/cache")
@@ -39,8 +41,10 @@ def call(model, messages, schema, seed, temp=0.7):
     for attempt in range(3):  # a parse failure gets 2 more tries with a different seed
         try:
             out = _ollama_chat(model, messages, schema, seed + 100003 * attempt, temp)
+            validate(out["content"], schema)
             break
-        except (json.JSONDecodeError, KeyError, AttributeError):
+        except (json.JSONDecodeError, KeyError, AttributeError, ValidationError):
+            out = None
             continue
     if out is None:
         return {"content": None, "tokens": 0, "latency_s": 0.0}

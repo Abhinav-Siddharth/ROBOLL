@@ -16,6 +16,7 @@ res = Result(ok=False, code="PARAM_MISMATCH", detail="grasp invalid for apple", 
 
 t0 = time.time()
 bad = 0
+parse_failures = 0
 for seed in range(20):
     c = LLMClient(model, base_seed=seed)
     out = c.call(prompts.mode_messages(task, call, res, history=[], remaining=7, untried=["side", "pinch"], n_fail=1),
@@ -27,4 +28,7 @@ for seed in range(20):
     out = c.call(prompts.replan_messages(task, call, res, [call.to_flat()], {"robot_loc": "counter", "holding": None,
                  "drawer_open": False, "objects": {"apple": "counter"}}), prompts.REPLAN_SCHEMA)
     bad += out is None or "steps" not in out
-print(f"60 calls, {bad} bad outputs, {time.time() - t0:.1f}s total")
+    parse_failures += c.parse_failures
+print(f"60 calls, {bad} bad outputs, {parse_failures} exhausted parse/schema failures, {time.time() - t0:.1f}s total")
+if bad or parse_failures:
+    sys.exit(1)
