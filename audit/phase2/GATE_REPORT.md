@@ -55,3 +55,7 @@ Before: 2 failed. After: 416 passed. Legacy keys are identical and cache entries
 
 418 tests passed, including protected-path and exact-ID guards. New rows record model/options/code/cache provenance and actual episode wall time. Batch completion enforces the preregistered structural gate.
 
+## Gate 3 smoke VERIFIED
+
+Command: PYTHONPATH="" PYTHONDONTWRITEBYTECODE=1 PFR_CACHE=results/cache_v2 PFR_CACHE_NAMESPACE=v2-format PFR_MODEL_DIGEST=845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e PFR_OLLAMA_VERSION=0.40.0 .venv/bin/python scripts/check_llm.py qwen2.5:7b. Output is gate3-smoke.txt; exit 0. Frozen prompt text, tasks, policy and primary analysis hash also verified in gate3-frozen-design.txt.
+

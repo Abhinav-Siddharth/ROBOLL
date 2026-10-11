@@ -1,0 +1,19 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -c import hashlib,json,pathlib,subprocess,types
+from pfr import prompts
+from pfr.env import Call,Result
+from pfr.tasks import TASKS
+m=types.ModuleType('pfr._v1_prompts');m.__package__='pfr'
+exec(subprocess.check_output(['git','show','pre-phase2:src/pfr/prompts.py'],text=True),m.__dict__)
+assert all(getattr(prompts,k)==getattr(m,k) for k in ['SYSTEM','MODE_HELP','SKILL_MENU'])
+t=TASKS[0];c=Call.from_flat(t['plan'][1]);r=Result(ok=False,code='STATE_MISMATCH',detail='object not found at current location')
+assert prompts.replan_messages(t,c,r,t['plan'][1:],t['init_state'])==m.replan_messages(t,c,r,t['plan'][1:],t['init_state'])
+assert prompts.mode_messages(t,c,r)==m.mode_messages(t,c,r)
+assert prompts.mode_messages(t,c,r,history=[],remaining=7,untried=['side','pinch'],n_fail=1)==m.mode_messages(t,c,r,history=[],remaining=7,untried=['side','pinch'],n_fail=1)
+manifest=json.loads(pathlib.Path('audit/phase2/prereg_manifest.json').read_text())
+assert hashlib.sha256(pathlib.Path('analysis/make_figures.py').read_bytes()).hexdigest()==manifest['primary_analysis_sha256']
+assert hashlib.sha256(pathlib.Path('configs/policy.yaml').read_bytes()).hexdigest()==manifest['policy_sha256']
+assert hashlib.sha256(pathlib.Path('src/pfr/tasks.py').read_bytes()).hexdigest()==manifest['tasks_sha256']
+print('VERIFIED: transmitted v1 prompt text unchanged; primary analysis, tasks and policy hashes unchanged')
+VERIFIED: transmitted v1 prompt text unchanged; primary analysis, tasks and policy hashes unchanged
+
+exit_code=0
