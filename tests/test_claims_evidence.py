@@ -18,10 +18,11 @@ def test_missing_arguments_are_counted_separately_from_other_failures():
 
 @pytest.mark.parametrize('scheme',['paired_row','task_cluster'])
 def test_weighted_ratio_is_not_mean_of_episode_ratios(scheme):
-    df=pd.DataFrame(dict(task=['a','b'],yes=[1,3],total=[2,6]))
+    df=pd.DataFrame(dict(task=['a','b'],yes=[1,0],total=[1,3]))
     result=module.ratio_ci(df,'yes','total',scheme)
-    assert result['mean']==result['ci_lo']==result['ci_hi']==0.5
-    assert result['numerator']==4 and result['denominator']==8
+    assert result['mean']==0.25  # the mean of the two episode ratios would be 0.5
+    assert result['ci_lo']==0 and result['ci_hi']==1
+    assert result['numerator']==1 and result['denominator']==4
 
 
 def test_undefined_ratio_rejected():

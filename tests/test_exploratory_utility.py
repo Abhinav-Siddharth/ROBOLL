@@ -56,6 +56,7 @@ def test_break_even_known_answers(dc,dq,expected,reading):
     assert break_even(dc,dq)==(expected,reading)
 
 
-def test_output_cannot_overwrite_primary():
+@pytest.mark.parametrize('destination',[ROOT/'results/v2',ROOT])
+def test_output_cannot_overwrite_primary(destination):
     with pytest.raises(ValueError,match='derived_v2'):
-        safe_output(ROOT/'results/v2')
+        safe_output(destination)

@@ -86,7 +86,7 @@ def safe_output(path):
     path = Path(path).resolve()
     root = Path(__file__).resolve().parents[2]
     allowed = root/'results/derived_v2'
-    if path != allowed and allowed not in path.parents and root in path.parents:
+    if path != allowed and allowed not in path.parents and (path == root or root in path.parents):
         raise ValueError('Repository outputs must be under results/derived_v2')
     path.mkdir(parents=True, exist_ok=True)
     return path

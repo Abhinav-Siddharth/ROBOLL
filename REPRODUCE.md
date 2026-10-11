@@ -68,3 +68,24 @@ No push is performed by this workflow. A local backup is created and checked by:
 git bundle create /tmp/pfr-v2-primary.bundle --all
 git bundle verify /tmp/pfr-v2-primary.bundle
 ```
+
+## Reproduce the exploratory additions
+
+After updating the clean clone to the Phase 3 commits, run these exact commands.
+They rebuild into a second scratch directory and leave committed derived outputs intact.
+
+```bash
+git -C /tmp/pfr-phase3-clean pull --ff-only
+cd /tmp/pfr-phase3-clean
+PYTHONPATH="" .venv/bin/python -m pytest -q -p no:cacheprovider
+PYTHONPATH="" .venv/bin/python analysis/human_utility.py --v1 results/raw/qwen.jsonl --v2 results/raw/qwen_v2.jsonl --out /tmp/pfr-phase3-exploratory
+PYTHONPATH="" .venv/bin/python analysis/human_pareto.py --v1 results/raw/qwen.jsonl --v2 results/raw/qwen_v2.jsonl --out /tmp/pfr-phase3-exploratory
+PYTHONPATH="" .venv/bin/python analysis/human_terminations.py --v1 results/raw/qwen.jsonl --v2 results/raw/qwen_v2.jsonl --out /tmp/pfr-phase3-exploratory
+PYTHONPATH="" .venv/bin/python analysis/claims_evidence.py --v1 results/raw/qwen.jsonl --v2 results/raw/qwen_v2.jsonl --ablation results/raw/qwen_v2_ablation.jsonl --out /tmp/pfr-phase3-exploratory --paper /tmp/pfr-phase3-exploratory/claims_evidence.md
+PYTHONPATH="" .venv/bin/python -c 'from pathlib import Path; root=Path.cwd(); scratch=Path("/tmp/pfr-phase3-exploratory"); files=sorted((root/"results/derived_v2").iterdir()); changed=[p.name for p in files if p.read_bytes()!=(scratch/p.name).read_bytes()]; changed += ["claims_evidence.md"] if (root/"paper/claims_evidence.md").read_bytes()!=(scratch/"claims_evidence.md").read_bytes() else []; print(f"EXPLORATORY DIFF: {len(files)+1} files compared; {len(changed)} different",changed); raise SystemExit(bool(changed))'
+```
+
+Every number in `results/derived_v2/` is **exploratory, defined after seeing the
+data**. Its intervals retain the primary marginal alpha but do not provide
+familywise control across the full set of exploratory comparisons. Read
+`paper/claims_evidence.md` for the exact permitted scope of each claim.
