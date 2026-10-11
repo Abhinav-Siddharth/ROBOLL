@@ -1,0 +1,7 @@
+$ /home/abhi_pop/pfr/.venv/bin/python audit/phase2/cache_verify.py results/raw/qwen_v2.jsonl results/raw/qwen_v2_ablation.jsonl
+CACHE_AUDIT model_requests 5278 unique_cache_keys 2752 missing 0 mismatches 0
+CACHE missing_examples []
+CACHE mismatch_examples []
+RAW_REPLAN_PLACE_LOC_OMISSIONS {}
+
+exit_code=0
