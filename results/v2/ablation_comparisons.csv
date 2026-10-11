@@ -1,0 +1,21 @@
+comparison,metric,bootstrap,n_pairs,diff,ci_lo,ci_hi,reading,status
+B2C - B2,raw_correct,paired_row,200,0.04,0.01,0.075,CI excludes 0 (A better),secondary post-audit ablation
+B2C - B2,raw_correct,task_cluster,200,0.04,0.005,0.085,CI excludes 0 (A better),secondary post-audit ablation
+B2C - B2,no_human_correct,paired_row,200,0.01,0.0,0.03,CI includes 0 (no clear difference),secondary post-audit ablation
+B2C - B2,no_human_correct,task_cluster,200,0.01,0.0,0.03,CI includes 0 (no clear difference),secondary post-audit ablation
+B2C - B2,autonomous_success,paired_row,200,0.01,0.0,0.03,CI includes 0 (no clear difference),secondary post-audit ablation
+B2C - B2,autonomous_success,task_cluster,200,0.01,0.0,0.03,CI includes 0 (no clear difference),secondary post-audit ablation
+B2C - B2,anchor_regret,paired_row,200,0.075,-0.02,0.17,CI includes 0 (no clear difference),secondary post-audit ablation
+B2C - B2,anchor_regret,task_cluster,200,0.075,-0.035,0.15,CI includes 0 (no clear difference),secondary post-audit ablation
+B2C - B2,total_failure_cost,paired_row,200,-0.11,-0.225,-0.03,CI excludes 0 (A better),secondary post-audit ablation
+B2C - B2,total_failure_cost,task_cluster,200,-0.11,-0.26,-0.01,CI excludes 0 (A better),secondary post-audit ablation
+B2C - B4,raw_correct,paired_row,200,-0.24,-0.325,-0.16,CI excludes 0 (A worse),secondary post-audit ablation
+B2C - B4,raw_correct,task_cluster,200,-0.24,-0.343375,-0.14,CI excludes 0 (A worse),secondary post-audit ablation
+B2C - B4,no_human_correct,paired_row,200,-0.005,-0.025,0.015,CI includes 0 (no clear difference),secondary post-audit ablation
+B2C - B4,no_human_correct,task_cluster,200,-0.005,-0.025,0.015,CI includes 0 (no clear difference),secondary post-audit ablation
+B2C - B4,autonomous_success,paired_row,200,-0.005,-0.025,0.015,CI includes 0 (no clear difference),secondary post-audit ablation
+B2C - B4,autonomous_success,task_cluster,200,-0.005,-0.025,0.015,CI includes 0 (no clear difference),secondary post-audit ablation
+B2C - B4,anchor_regret,paired_row,200,0.295,0.125,0.465,CI excludes 0 (A worse),secondary post-audit ablation
+B2C - B4,anchor_regret,task_cluster,200,0.295,0.13,0.46,CI excludes 0 (A worse),secondary post-audit ablation
+B2C - B4,total_failure_cost,paired_row,200,0.425,0.245,0.61,CI excludes 0 (A worse),secondary post-audit ablation
+B2C - B4,total_failure_cost,task_cluster,200,0.425,0.215,0.63,CI excludes 0 (A worse),secondary post-audit ablation

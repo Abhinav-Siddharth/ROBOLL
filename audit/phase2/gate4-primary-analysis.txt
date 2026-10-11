@@ -1,0 +1,31 @@
+$ /home/abhi_pop/pfr/.venv/bin/python -c import os, pathlib, importlib.util; root=pathlib.Path('/home/abhi_pop/pfr'); out=root/'results/v2'; out.mkdir(parents=True,exist_ok=True); os.chdir(out); spec=importlib.util.spec_from_file_location('frozen_primary',root/'analysis/make_figures.py'); module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module); module.main([str(root/'results/raw/qwen_v2.jsonl')])
+          n  correct  regret   loop  human_queries    tokens  latency_s
+method                                                                 
+B0      220    0.364   4.182  0.727          0.000     0.000      0.000
+B1      220    0.636   1.000  0.727          0.000     0.000      0.000
+B2      220    0.455   3.686  0.545          0.000  1604.864      5.891
+B3      220    0.527   2.941  0.450          0.000  1864.932      8.274
+B4      220    0.709   3.282  0.536          0.245  1996.355      4.803
+B5      220    0.955   0.973  0.282          0.091   373.550      1.666 
+
+hypothesis comparison                         subset_metric  n_pairs   diff  ci_lo  ci_hi                             reading
+        H1    B5 - B1                     T1/T2 correctness       40  0.000  0.000  0.000 CI includes 0 (no clear difference)
+        H1    B5 - B3                     T1/T2 correctness       40  0.150  0.025  0.300            CI excludes 0 (A better)
+        H2    B5 - B0                         P-cell regret       80 -4.787 -4.975 -4.625            CI excludes 0 (A better)
+        H2    B5 - B4                         P-cell regret       80 -3.913 -4.213 -3.625            CI excludes 0 (A better)
+        H2    B5 - B3                         P-cell regret       80 -4.463 -4.725 -4.125            CI excludes 0 (A better)
+        H2    B5 - B4                      P-cell loop rate       80 -0.512 -0.637 -0.388            CI excludes 0 (A better)
+        H2    B5 - B3                      P-cell loop rate       80 -0.475 -0.613 -0.350            CI excludes 0 (A better)
+        H3    B5 - B4                    F-cell correctness       60  0.250  0.117  0.400            CI excludes 0 (A better)
+        H3    B5 - B3                    F-cell correctness       60  0.133  0.033  0.250            CI excludes 0 (A better)
+        H4    B1 - B5                    P-cell correctness       80  0.037  0.000  0.100 CI includes 0 (no clear difference)
+        H4    B1 - B5                         P-cell regret       80 -0.212 -0.375 -0.025            CI excludes 0 (A better)
+        H4    B1 - B5                    F + T3 correctness       80 -0.912 -0.975 -0.825             CI excludes 0 (A worse)
+      MAIN    B5 - B1                  all-cell correctness      220  0.318  0.241  0.395            CI excludes 0 (A better)
+      MAIN    B5 - B4                  all-cell correctness      220  0.245  0.173  0.323            CI excludes 0 (A better)
+      MAIN    B5 - B3                  all-cell correctness      220  0.427  0.350  0.509            CI excludes 0 (A better)
+      MAIN    B4 - B2 does history help the LLM? (B4 vs B2)      220  0.255  0.186  0.327            CI excludes 0 (A better)
+
+saved figures/fig1..fig4 and results/tables/*.csv
+
+exit_code=0

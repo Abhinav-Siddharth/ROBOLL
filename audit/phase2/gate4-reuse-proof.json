@@ -1,0 +1,11 @@
+{
+  "rows": 1320,
+  "unique_ids": 1320,
+  "invalid_calls": 0,
+  "parse_failures": 0,
+  "replay_mismatches": 0,
+  "reused_rows": 520,
+  "newly_inferred_rows": 800,
+  "source_sha256": "a0a60376c6b3f1cb707387fd72f97836b7b65622c7292ea2d41670973d6e7fe7",
+  "verification_commit": "3f43c5d7c1e761e160fe5f5cfddd34c664c882bc"
+}

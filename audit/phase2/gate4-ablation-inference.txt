@@ -1,0 +1,34 @@
+gate4-ablation: 10 newly completed; 10 total in output; elapsed=24.4s
+gate4-ablation: 20 newly completed; 20 total in output; elapsed=63.2s
+gate4-ablation: 30 newly completed; 30 total in output; elapsed=99.7s
+gate4-ablation: 40 newly completed; 40 total in output; elapsed=125.2s
+gate4-ablation: 50 newly completed; 50 total in output; elapsed=162.0s
+gate4-ablation: 60 newly completed; 60 total in output; elapsed=188.6s
+gate4-ablation: 70 newly completed; 70 total in output; elapsed=220.7s
+gate4-ablation: 80 newly completed; 80 total in output; elapsed=249.0s
+gate4-ablation: 90 newly completed; 90 total in output; elapsed=287.7s
+gate4-ablation: 100 newly completed; 100 total in output; elapsed=314.6s
+gate4-ablation: 110 newly completed; 110 total in output; elapsed=347.8s
+gate4-ablation: 120 newly completed; 120 total in output; elapsed=385.7s
+gate4-ablation: 130 newly completed; 130 total in output; elapsed=407.7s
+gate4-ablation: 140 newly completed; 140 total in output; elapsed=440.9s
+gate4-ablation: 150 newly completed; 150 total in output; elapsed=473.7s
+gate4-ablation: 160 newly completed; 160 total in output; elapsed=500.6s
+gate4-ablation: 170 newly completed; 170 total in output; elapsed=531.1s
+gate4-ablation: 180 newly completed; 180 total in output; elapsed=555.1s
+gate4-ablation: 190 newly completed; 190 total in output; elapsed=596.2s
+gate4-ablation: 200 newly completed; 200 total in output; elapsed=632.3s
+{
+  "rows": 200,
+  "unique_ids": 200,
+  "invalid_calls": 0,
+  "parse_failures": 0,
+  "replay_mismatches": 0,
+  "batch": "gate4-ablation",
+  "newly_executed": 200,
+  "started_at_utc": "2026-10-11T10:01:42.662521+00:00",
+  "wall_time_s": 632.3520591420001,
+  "code_commit": "3f43c5d7c1e761e160fe5f5cfddd34c664c882bc",
+  "config": "configs/v2_ablation.yaml",
+  "config_sha256": "60f9b48133e78563362130950bd16c51b0c45fd3714986341834ceecca67c9dc"
+}

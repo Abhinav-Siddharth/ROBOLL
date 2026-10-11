@@ -1,0 +1,4 @@
+$ /home/abhi_pop/pfr/.venv/bin/python analysis/plot_derived.py results/raw/qwen_v2.jsonl --out results/v2/figures
+Companion literal-cost and zero-human figures written to results/v2/figures
+
+exit_code=0

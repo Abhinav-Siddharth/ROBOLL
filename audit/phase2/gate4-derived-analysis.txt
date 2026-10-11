@@ -1,0 +1,4 @@
+$ /home/abhi_pop/pfr/.venv/bin/python analysis/derive.py results/raw/qwen_v2.jsonl --out results/v2/derived
+1320 unique episodes; costs and H2 definitions written to results/v2/derived
+
+exit_code=0

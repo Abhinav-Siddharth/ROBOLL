@@ -1,0 +1,4 @@
+$ /home/abhi_pop/pfr/.venv/bin/python analysis/compare_versions.py --ablation results/raw/qwen_v2_ablation.jsonl
+Version comparison: 72 method/metric rows written to /home/abhi_pop/pfr/results/v2
+
+exit_code=0

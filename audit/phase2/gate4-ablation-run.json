@@ -1,0 +1,14 @@
+{
+  "rows": 200,
+  "unique_ids": 200,
+  "invalid_calls": 0,
+  "parse_failures": 0,
+  "replay_mismatches": 0,
+  "batch": "gate4-ablation",
+  "newly_executed": 200,
+  "started_at_utc": "2026-10-11T10:01:42.662521+00:00",
+  "wall_time_s": 632.3520591420001,
+  "code_commit": "3f43c5d7c1e761e160fe5f5cfddd34c664c882bc",
+  "config": "configs/v2_ablation.yaml",
+  "config_sha256": "60f9b48133e78563362130950bd16c51b0c45fd3714986341834ceecca67c9dc"
+}
