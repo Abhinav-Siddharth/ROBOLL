@@ -1,0 +1,23 @@
+{
+  "private_repository": "https://github.com/Abhinav-Siddharth/ROBOLL",
+  "verified_private": true,
+  "pushed_and_restored_head": "107434e18fa5cfff6bf270165854a972c8a9bf37",
+  "private_restore_path": "/tmp/pfr-phase3b-private-restore",
+  "private_restore_manifest": "MANIFEST OK: 43 files; no missing, extra, or changed files",
+  "private_restore_git_status": "",
+  "private_restore_git_fsck_exit": 0,
+  "cache_archive": "audit/phase3b/archived-v1-v2-cache.tar.gz",
+  "cache_archive_sha256": "2f407bf04b7e4a4e66da275bb92015d5989f3d2e3b22877ecd1459822b9cd6d2",
+  "cache_files": 5251,
+  "cache_restore_byte_mismatches": 0,
+  "ollama_server_version": "0.40.0",
+  "qwen_model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "gpu_memory_total_mib": 8188,
+  "gpu_memory_free_mib_at_check": 7805,
+  "inference_requests": 0,
+  "notes": [
+    "The earlier /tmp bundle was absent and has been recreated and locally restored.",
+    "Cache archive restores ignored v1/v2 responses; private Git restore alone does not include ignored directories."
+  ]
+}
