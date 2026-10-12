@@ -7,3 +7,4 @@ logs/
 .pytest_cache/
 
 results/cache_v2/
+results/cache_v3/
