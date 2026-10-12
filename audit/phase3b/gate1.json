@@ -1,0 +1,14 @@
+{
+  "amendment_commit": "07e17c38703effb6f2a630aaa167ad42f198aabd",
+  "source_code_commit": "a49a38dab4b83d9abf7114c540384ed1dbf29c90",
+  "manifest_sha256": "42a87b41ad230d133f0202bc5e17687bbd46c7f6bf555c9e3687b108797d3d22",
+  "manifest_lines": 96,
+  "frozen_original_artifacts": 43,
+  "inference_requests_before_freeze": 0,
+  "gate1_full_suite": "520 passed in 3.52s",
+  "offline_seed0_rows": 1320,
+  "offline_seed0_cache_calls": 3871,
+  "offline_seed0_server_requests": 0,
+  "offline_seed0_payload_mismatches": 0,
+  "offline_seed0_replay_mismatches": 0
+}
