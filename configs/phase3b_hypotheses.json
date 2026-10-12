@@ -1,0 +1,746 @@
+{
+  "version": "phase3b-v1",
+  "amendment": "paper/phase3b_amendment.md",
+  "baseline_commit": "107434e18fa5cfff6bf270165854a972c8a9bf37",
+  "baseline": "results/raw/qwen_v2.jsonl",
+  "qwen_model": "qwen2.5:7b",
+  "qwen_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "second_model": "llama3.1:8b",
+  "ollama_version": "0.40.0",
+  "temperature": 0.7,
+  "num_ctx": 4096,
+  "max_failures": 8,
+  "methods": [
+    "B0",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5"
+  ],
+  "faulted_methods": [
+    "B2",
+    "B3",
+    "B4",
+    "B5"
+  ],
+  "noise_methods": [
+    "B2",
+    "B4",
+    "B5"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "noise_ps": [
+    0,
+    0.1,
+    0.2,
+    0.3
+  ],
+  "cells": [
+    "NONE",
+    "TR-T1",
+    "TR-T2",
+    "TR-T3",
+    "TR-P",
+    "PAR-F",
+    "PAR-P",
+    "ST-F",
+    "ST-P",
+    "PRE-F",
+    "PRE-P"
+  ],
+  "bootstrap": {
+    "alpha": 0.016666666666666666,
+    "n_boot": 10000,
+    "seed": 0,
+    "schemes": [
+      "paired_row",
+      "task_cluster"
+    ]
+  },
+  "hypotheses": {
+    "S1": {
+      "metric": "no_human_correct",
+      "scope": "all_cells",
+      "comparators": [
+        "B2",
+        "B3",
+        "B4"
+      ],
+      "criterion": "B5 minus each comparator strictly positive in each seed; ties fail"
+    },
+    "M1": {
+      "metric": "no_human_correct",
+      "scope": "all_cells",
+      "criterion": "second-model B5 minus B4 strictly positive point difference"
+    },
+    "N1": {
+      "metric": "no_human_correct",
+      "scope": "faulted_only",
+      "criterion": "report every tested p, every adjacent sign-change bracket and exact ties; no directional crossover prediction"
+    }
+  },
+  "canonical_details": {
+    "EXEC_TRANSIENT": "execution error: motion timeout",
+    "PARAM_MISMATCH": "parameter invalid for this skill execution",
+    "STATE_MISMATCH": "observed state does not match the expected state",
+    "PRECOND_UNMET": "precondition for this skill execution is not satisfied"
+  },
+  "noise_key_fields": [
+    "task",
+    "cell",
+    "environment_seed",
+    "one_based_attempt",
+    "integer_percent_p"
+  ],
+  "smoke": {
+    "seed1": [
+      {
+        "task": "t01",
+        "cell": "TR-T1",
+        "method": "B2",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t02",
+        "cell": "TR-T2",
+        "method": "B3",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t03",
+        "cell": "TR-T3",
+        "method": "B4",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t04",
+        "cell": "TR-P",
+        "method": "B5",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t05",
+        "cell": "PAR-F",
+        "method": "B2",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t06",
+        "cell": "PAR-P",
+        "method": "B3",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t07",
+        "cell": "ST-F",
+        "method": "B4",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t08",
+        "cell": "ST-P",
+        "method": "B5",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t09",
+        "cell": "PRE-F",
+        "method": "B2",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t10",
+        "cell": "PRE-P",
+        "method": "B3",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t11",
+        "cell": "TR-T1",
+        "method": "B4",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t12",
+        "cell": "TR-T2",
+        "method": "B5",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t13",
+        "cell": "TR-T3",
+        "method": "B2",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t14",
+        "cell": "TR-P",
+        "method": "B3",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t15",
+        "cell": "PAR-F",
+        "method": "B4",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t16",
+        "cell": "PAR-P",
+        "method": "B5",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t17",
+        "cell": "ST-F",
+        "method": "B2",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t18",
+        "cell": "ST-P",
+        "method": "B3",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t19",
+        "cell": "PRE-F",
+        "method": "B4",
+        "seed": 1,
+        "noise_p": 0
+      },
+      {
+        "task": "t20",
+        "cell": "PRE-P",
+        "method": "B5",
+        "seed": 1,
+        "noise_p": 0
+      }
+    ],
+    "second_model": [
+      {
+        "task": "t01",
+        "cell": "TR-T1",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t02",
+        "cell": "TR-T2",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t03",
+        "cell": "TR-T3",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t04",
+        "cell": "TR-P",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t05",
+        "cell": "PAR-F",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t06",
+        "cell": "PAR-P",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t07",
+        "cell": "ST-F",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t08",
+        "cell": "ST-P",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t09",
+        "cell": "PRE-F",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t10",
+        "cell": "PRE-P",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t05",
+        "cell": "TR-T1",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t06",
+        "cell": "TR-T2",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t07",
+        "cell": "TR-T3",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t08",
+        "cell": "TR-P",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t09",
+        "cell": "PAR-F",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t10",
+        "cell": "PAR-P",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t11",
+        "cell": "ST-F",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t12",
+        "cell": "ST-P",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t13",
+        "cell": "PRE-F",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t14",
+        "cell": "PRE-P",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t09",
+        "cell": "TR-T1",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t10",
+        "cell": "TR-T2",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t11",
+        "cell": "TR-T3",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t12",
+        "cell": "TR-P",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t13",
+        "cell": "PAR-F",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t14",
+        "cell": "PAR-P",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t15",
+        "cell": "ST-F",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t16",
+        "cell": "ST-P",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t17",
+        "cell": "PRE-F",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t18",
+        "cell": "PRE-P",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t13",
+        "cell": "TR-T1",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t14",
+        "cell": "TR-T2",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t15",
+        "cell": "TR-T3",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t16",
+        "cell": "TR-P",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t17",
+        "cell": "PAR-F",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t18",
+        "cell": "PAR-P",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t19",
+        "cell": "ST-F",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t20",
+        "cell": "ST-P",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t01",
+        "cell": "PRE-F",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t02",
+        "cell": "PRE-P",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t17",
+        "cell": "TR-T1",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t18",
+        "cell": "TR-T2",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t19",
+        "cell": "TR-T3",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t20",
+        "cell": "TR-P",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t01",
+        "cell": "PAR-F",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t02",
+        "cell": "PAR-P",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t03",
+        "cell": "ST-F",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t04",
+        "cell": "ST-P",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t05",
+        "cell": "PRE-F",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0
+      },
+      {
+        "task": "t06",
+        "cell": "PRE-P",
+        "method": "B3",
+        "seed": 0,
+        "noise_p": 0
+      }
+    ],
+    "noise_p02": [
+      {
+        "task": "t01",
+        "cell": "TR-T1",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t02",
+        "cell": "TR-T2",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t03",
+        "cell": "TR-T3",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t04",
+        "cell": "TR-P",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t05",
+        "cell": "PAR-F",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t06",
+        "cell": "PAR-P",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t07",
+        "cell": "ST-F",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t08",
+        "cell": "ST-P",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t09",
+        "cell": "PRE-F",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t10",
+        "cell": "PRE-P",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t11",
+        "cell": "TR-T1",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t12",
+        "cell": "TR-T2",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t13",
+        "cell": "TR-T3",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t14",
+        "cell": "TR-P",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t15",
+        "cell": "PAR-F",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t16",
+        "cell": "PAR-P",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t17",
+        "cell": "ST-F",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t18",
+        "cell": "ST-P",
+        "method": "B5",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t19",
+        "cell": "PRE-F",
+        "method": "B2",
+        "seed": 0,
+        "noise_p": 0.2
+      },
+      {
+        "task": "t20",
+        "cell": "PRE-P",
+        "method": "B4",
+        "seed": 0,
+        "noise_p": 0.2
+      }
+    ]
+  },
+  "full_outputs": {
+    "seed1": "results/raw/qwen_v3_seed1.jsonl",
+    "seed2": "results/raw/qwen_v3_seed2.jsonl",
+    "second_model": "results/raw/llama_v3_seed0.jsonl",
+    "noise_p01": "results/raw/qwen_v3_noise_p01.jsonl",
+    "noise_p02": "results/raw/qwen_v3_noise_p02.jsonl",
+    "noise_p03": "results/raw/qwen_v3_noise_p03.jsonl"
+  }
+}
