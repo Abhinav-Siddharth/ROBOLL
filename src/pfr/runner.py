@@ -35,7 +35,8 @@ def _untried(call: Call, param_field, history: list) -> list:
     return [v for v in VALUES[param_field] if v not in tried]
 
 
-def run_episode(task: dict, cell: str, seed: int, method, llm: LLMClient, max_failures: int = 8) -> dict:
+def run_episode(task: dict, cell: str, seed: int, method, llm: LLMClient, max_failures: int = 8,
+                observation_transform=None) -> dict:
     fault = build_fault(task, cell, seed)
     env = Env(task["init_state"])
     fenv = FaultyEnv(env, fault)
@@ -60,6 +61,14 @@ def run_episode(task: dict, cell: str, seed: int, method, llm: LLMClient, max_fa
             i += 1
             continue
 
+        observed = res
+        if observation_transform is not None:
+            observed, evidence = observation_transform(res, call, attempt_no)
+            if observed.ok or observed.code == "OK":
+                raise ValueError("Failure observation transforms cannot turn failures into success")
+            if set(evidence) & set(step):
+                raise ValueError("Observation audit metadata cannot replace true execution fields")
+            step.update(evidence)
         n_fail += 1
         fail_counts[call.key()] += 1
         if n_fail >= max_failures:
@@ -69,18 +78,18 @@ def run_episode(task: dict, cell: str, seed: int, method, llm: LLMClient, max_fa
 
         param_field = PARAM_FIELD.get(call.skill)
         untried = _untried(call, param_field, history)
-        ctx = Ctx(task=task, call=call, result=res, history=list(history), n_fail=n_fail,
+        ctx = Ctx(task=task, call=call, result=observed, history=list(history), n_fail=n_fail,
                   max_failures=max_failures, param_field=param_field, untried=untried, llm=llm)
         decision = method.on_failure(ctx)
         mode = decision.mode if decision.mode in MODES else "abstain"
         step["decision"] = mode
-        history.append({"call": call.to_flat(), "code": res.code, "detail": res.detail, "decision": mode})
+        history.append({"call": call.to_flat(), "code": observed.code, "detail": observed.detail, "decision": mode})
 
         if mode == "retry":
             continue
         if mode == "modify":
             if param_field and untried:
-                out = llm.call(prompts.modify_messages(task, call, res, param_field, untried),
+                out = llm.call(prompts.modify_messages(task, call, observed, param_field, untried),
                                prompts.modify_schema(param_field, untried))
                 new_value = out.get("new_value") if out else None
                 if new_value not in untried:
@@ -91,7 +100,7 @@ def run_episode(task: dict, cell: str, seed: int, method, llm: LLMClient, max_fa
             continue
         if mode == "replan":
             out = llm.call(
-                prompts.replan_messages(task, call, res, [c.to_flat() for c in plan[i:]], fenv.observe()),
+                prompts.replan_messages(task, call, observed, [c.to_flat() for c in plan[i:]], fenv.observe()),
                 prompts.REPLAN_SCHEMA)
             new_steps = (out or {}).get("steps", [])
             plan = plan[:i] + [Call.from_flat(s) for s in new_steps]
