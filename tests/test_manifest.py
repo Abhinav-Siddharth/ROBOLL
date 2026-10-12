@@ -51,3 +51,46 @@ def test_manifest_rejects_duplicate(tmp_path):
     manifest.write_text(manifest.read_text()*2)
     with pytest.raises(ValueError, match='Duplicate'):
         module.verify(tmp_path)
+
+
+def test_explicit_frozen_source_is_checked(tmp_path):
+    _, manifest = fixture(tmp_path)
+    source = tmp_path/'paper/amendment.md'
+    source.parent.mkdir()
+    source.write_bytes(b'prospective')
+    with manifest.open('a') as f:
+        f.write(hashlib.sha256(source.read_bytes()).hexdigest()+'  paper/amendment.md\n')
+    assert module.verify(tmp_path) == 2
+    source.write_bytes(b'changed after inference')
+    with pytest.raises(ValueError, match='missing, extra, or changed'):
+        module.verify(tmp_path)
+
+
+def test_new_raw_exemption_cannot_hide_old_mutation(tmp_path):
+    original, _ = fixture(tmp_path)
+    new = original.with_name('new.jsonl')
+    new.write_bytes(b'new')
+    assert module.verify(tmp_path, allow_new=('results/raw/new.jsonl',)) == 1
+    original.write_bytes(b'changed')
+    with pytest.raises(ValueError):
+        module.verify(tmp_path, allow_new=('results/raw/new.jsonl',))
+    with pytest.raises(ValueError, match='Cannot exempt'):
+        module.verify(tmp_path, allow_new=('results/raw/example.jsonl',))
+
+
+def test_manifest_rejects_source_symlink_escape(tmp_path):
+    _, manifest = fixture(tmp_path)
+    (tmp_path/'escape').symlink_to('/etc/hostname')
+    with manifest.open('a') as f:
+        f.write('0'*64+'  escape\n')
+    with pytest.raises(ValueError, match='symlink'):
+        module.verify(tmp_path)
+
+
+def test_new_derived_directory_is_exhaustive(tmp_path):
+    _, _ = fixture(tmp_path)
+    p = tmp_path/'results/derived_v3/new.csv'
+    p.parent.mkdir()
+    p.write_text('unlisted')
+    with pytest.raises(ValueError, match='missing, extra, or changed'):
+        module.verify(tmp_path)
